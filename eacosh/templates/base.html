@@ -1,0 +1,199 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/base.css' %}" />
+
+    <script src="{% static 'js/jquery-3.4.1.min.js' %}"></script>
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'js/base.js' %}"></script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-156849121-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-156849121-1');
+    </script>
+    <!-- Google Tag Manager -->
+      <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+      new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+      j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+      'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+      })(window,document,'script','dataLayer','GTM-N7GRQ68');</script>
+    <!-- End Google Tag Manager -->
+    <title>
+      {% block title %} {% endblock %}
+    </title>
+    <link rel="icon" href="{% static 'images/eacosh_icon.png' %}" />
+    <meta
+      name="description"
+      content="The East Africa Conference on Occupational Safety and Health (EACOSH) is an inaugural conference that aims to provide a platform for deliberations on performances, policies, industry best practices and much more related issues of Occupational Safety and Health by key stakeholders and the best brains towards a vision of zero accident in the East Africa Extractives Industry"
+    />
+    <meta
+      name="keywords"
+      content="Clean Energy,EACOSH,eacosh.com,eacosh, safety conference,world safety day, Securexpo,OSH Conference,World Conference on Safety, World Day for Safety and Health at Work day, Clean Energy, Green Energy, Occupational Safety and Health,OSH, Oil and Gas, Kipya, Kipya Africa, Kenya, Africa, East Africa, Knowledge Services, Geothermal, Solar, Wind, Energy, Uganda, Tanzania, South Sudan, Rwanda, Burundi, Water, Upstream, Africa Drilling Solutions, Africa Pipeline Solutions"
+    />
+    <link href="https://fonts.googleapis.com/css2?family=Asul&display=swap" rel="stylesheet">
+    <style>
+            *{
+                font-family: 'Asul', sans-serif;
+                transition:all 0.3s ease-in-out;
+            }
+    </style>
+  </head>
+  <body>
+  <!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-N7GRQ68"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+    <header class="shadow-lg bg-dark" style="width: 100vw;">
+      <div class="text-center" class="bg-dark" style="width:100%">
+        <img
+          src="{% static 'images/eacosh_cutout_v3.png' %}"
+          class="eacosh_cutout"
+        />
+      </div>
+      <nav class="bg-dark">
+        <ul class="menu">
+          <li class="logo">
+            <a href="/">
+              <img
+                src="{% static 'images/eacosh_logo_v2.png' %}"
+                style="width:8vw;height:5vw"
+                alt=""
+              />
+            </a>
+          </li>
+          {% comment %}
+          <li class="item"><a href="/about">About</a></li>
+          <li class="item"><a href="/speakers">Speakers</a></li>
+           <li class="item"><a href="/pricing">Pricing</a></li>
+          <li class="item button"><a href="/contact">Contact</a></li>
+          {% endcomment %}
+          <li class="toggle">
+            <span class="bars"></span>
+          </li>
+        </ul>
+        <!-- <br> -->
+      </nav>
+    </header>
+    <main class="content">
+      {% block content %} {% endblock %}
+    </main>
+    <footer class="text-white bg-dark">
+      <div class="container justify-content-center align-items-center">
+        <h5 class="text-center p-2">Participation by</h5><br>
+
+        <div class="justify-content-center align-items-center d-flex flex-wrap">
+            <!-- <div class="endorser bg-white shadow">
+                <img src="{% static 'images/doshs_gok.png' %}" class="justify-content-center" width="300px" height="100px"
+                    alt="">
+            </div> -->
+            <div class="endorser shadow-sm">
+                <img src="{% static 'images/kengen_logo.png' %}" class="justify-content-center" width="250px" height="150px"
+                    alt="">
+            </div>
+            <div class="endorser shadow-sm">
+                <img src="{% static 'images/gdc_logo.png' %}" class="justify-content-center" width="250px" height="150px"
+                    alt="">
+            </div>
+            <div class="endorser  shadow-sm">
+                <img src="{% static 'images/doshs.jpeg' %}" class="justify-content-center" width="150px" height="150px"
+                    alt="">
+            </div>
+            <div class="endorser shadow-sm">
+                <img src="{% static 'images/goklogo.png' %}" class="justify-content-center" width="140px" height="150px"
+                    alt="">
+                    <br>
+                    <small>Ministry of Labor & Social Protection</small>
+
+            </div>
+
+            <!-- <div class="endorser  shadow-sm">
+                <img src="{% static 'images/hselogo.png' %}" class="justify-content-center" width="300px" height="150px"
+                    alt="">
+            </div> -->
+
+            <!-- <div class="endorser shadow">
+                <img src="./assets/images/logos/logo14.png" class="justify-content-center" width="150px" height="150px"
+                    alt="">
+            </div> -->
+            <!-- <br> -->
+            <!-- <br> -->
+            <!-- <div class="endorser shadow">
+                <img src="./assets/images/logos/logo29.png" class="justify-content-center" width="400px" height="100px"
+                    alt="">
+            </div> -->
+
+        </div>
+        <!-- <br> -->
+        <!-- <hr> -->
+        <!-- <h5 class="text-center">Our Partners</h5>
+        <div class="d-flex align-items-center justify-content-center flex-wrap ">
+            <div class="partner card shadow-sm">
+                <img class="partner_logo" width="200px" height="80px;" src="./assets/images/logos/doshiwater.jpg"
+                    alt="">
+            </div>
+             <div class="partner card shadow-sm">
+                <img class="partner_logo" width="200px" height="80px;" src="./assets/images/logos/aas.png"
+                    alt="">
+            </div>
+           <div class="partner card shadow-sm">
+                <img class="partner_logo" width="140px" height="80px;" src="./assets/images/logos/wilo_logo.png" alt="">
+
+            </div>
+            <div class="partner card shadow-sm">
+                <img class="partner_logo" width="200px" height="80px;" src="./assets/images/logos/logo_untapped.png"
+                    alt="">
+            </div>
+            <div class="partner card shadow-sm">
+                <img class="partner_logo" width="200px" height="80px;" src="./assets/images/logos/dns.png" alt="">
+            </div>
+            <div class="partner card shadow-sm">
+                <img class="partner_logo" width="200px" height="80px;"  src="./assets/images/logos/kaeser.png" alt="">
+            </div>
+
+            <div class="partner card shadow-sm">
+                <img class="partner_logo" width="200px" height="80px;" src="./assets/images/logos/watershed.jpg"
+                    alt="">
+            </div>
+
+        </div> -->
+        <br>
+        <hr>
+        <h5 class="text-center p-4">Summit Organised by</h5>
+            <div class="container justify-content-center d-flex">
+                <div class="partner card shadow-sm">
+                    <img width="100%" src="{% static 'images/eacosh_cutout.png' %}"
+                        alt="">
+                 </div>
+        </div>
+        <br>
+    </div>
+    <br>
+
+    <hr>
+    <br>
+    <div class="container">
+        <div class="d-flex flex-row align-items-center justify-content-center">
+            <div class="col-12">
+                <p class="text-center">&copy; 2019-2020 Kipya Africa Ltd.</p>
+                <hr>
+                <p class="text-center" style="font-weight: bold">Contact Us</p>
+                <p class="text-center">Kipya (Africa) Limited</p>
+                <p class="text-center">P.O.Box 7407-00100, Nairobi, Kenya</p>
+                <p class="text-center">Tel: +254-728-615-438</p>
+                <p class="text-center">Email: info@eacosh.com</p>
+            </div>
+        </div>
+
+    </div>
+    </footer>
+  </body>
+</html>

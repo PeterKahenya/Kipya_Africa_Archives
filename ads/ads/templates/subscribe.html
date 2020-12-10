@@ -1,0 +1,44 @@
+
+<div class="d-flex flex-column" id="subscribe_form">
+      <input id="fullname" type="text" class="form-control mt-1 mb-1" placeholder="Enter Your Name">
+      <input id="email" type="email" class="form-control mb-1" placeholder="Enter Your Email">
+      <button type="submit" onclick="subscribe()" class="btn btn-warning mt-1 text-dark">
+          SUBSCRIBE
+      </button>
+</div>
+<div id="subscribe_success" style="display: none;" class="text-success display-5">
+  Thank you for subscribing
+</div>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script>
+  function validateEmail(addr){
+    var mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+    if(addr.match(mailformat)){
+      return true
+    }else{
+      return false
+    }
+  }
+
+  function subscribe() {
+    if (validateEmail($('#email').val())) {
+      axios.post('https://newsletter.kipya-africa.com/subscribers/add', {
+      fullname: $('#fullname').val(),
+      email: $('#email').val()
+    })
+    .then(function (response) {
+      // console.log("response",response)
+      if (response.data.IS_SUBSCRIBED===true) {
+        document.getElementById('subscribe_form').style.display = 'none!important';
+        $('#subscribe_success').fadeIn()
+      }
+    })
+    .catch(function (error) {
+      console.log(error);
+    });
+
+    }else{
+      alert("Please enter a valid email address.")
+    }
+  }
+</script>

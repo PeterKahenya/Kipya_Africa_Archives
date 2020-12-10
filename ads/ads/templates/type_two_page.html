@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+{% load static cms_tags %}
+
+{% block title %}{% page_attribute "page_title" %}{% endblock title %}
+
+{% block content %}
+<link href="{% static 'assets/css/style.css' %}" rel="stylesheet">
+
+<style>
+    .jumbotron {
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+  margin-bottom: 0;
+  background-color: #fff;
+}
+@media (min-width: 768px) {
+  .jumbotron {
+    padding-top: 6rem;
+    padding-bottom: 2rem;
+  }
+}
+
+@media (max-width: 767px) {
+  .jumbotron {
+    margin-top: 5rem !important;
+  }
+}
+
+.jumbotron p:last-child {
+  margin-bottom: 0;
+}
+
+.jumbotron h1 {
+  font-weight: 300;
+}
+
+.jumbotron .container {
+
+}
+</style>
+    <div class="jumbotron text-center my-5">
+      <div class="container">
+
+        {% placeholder "header" or %}
+            <h1>Album example</h1>
+            <p class="lead text-muted">Something short and leading about the collection below—its contents, the creator, etc. Make it short and sweet, but not too short so folks don’t simply skip over it entirely.</p>
+            <p>
+                <a href="#" class="btn btn-primary my-2">Main call to action</a>
+                <a href="#" class="btn btn-secondary my-2">Secondary action</a>
+            </p>
+        {% endplaceholder %}
+      </div>
+    </div>
+  
+    <div class="album py-5 bg-light">
+          {% placeholder "content" %}
+    </div>
+{% endblock content %}

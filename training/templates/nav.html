@@ -1,0 +1,68 @@
+{% load static %}
+<header style="background:linear-gradient(#000000a0,#00000050), url({{course.image.url}});background-size: 100% 100%;min-height: 65%;">
+    <nav class="site-header navbar  navbar-expand-md navbar-dark sticky-top" >
+          <div class="container">
+                      <a class="navbar-brand mr-auto" href="" >
+                        <img src="{% static 'images/kipya_logo_white_with_transparent_background.png' %}" class="ktts_logo"  alt="">
+                        <!-- <p class="ktts_subbrand text-center">TRAINING</p> -->
+                      </a>
+                      <button class="navbar-toggler mr-3" type="button" data-toggle="collapse" data-target="#menubar"
+                        aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                      </button>
+                      
+              
+                      <!-- <div class="collapse navbar-collapse" id="menubar">
+                        <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
+                          <li class="nav-item active">
+                            <a class="text-white nav-link" href="">Home <span class="sr-only">(current)</span></a>
+                          </li>
+                            <li class="nav-item dropdown">
+                                <a class="text-white nav-link dropdown-toggle " href="about/" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                  About Us
+                                </a>
+                                <div class="dropdown-menu bg-warning" aria-labelledby="navbarDropdownMenuLink">
+                                  <a class="dropdown-item" href="#">Our Values</a>
+                                  <a class="dropdown-item" href="#">Our Services</a>
+                                  <a class="dropdown-item" href="#">Our History</a>
+                                </div>
+                            </li>
+                            <li class="nav-item dropdown">
+                                    <a class="text-white nav-link dropdown-toggle " href="about/" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                      Services
+                                    </a>
+                                <div class="dropdown-menu bg-warning" aria-labelledby="navbarDropdownMenuLink">
+                                      <a class="dropdown-item" href="#">Personnel</a>
+                                      <a class="dropdown-item" href="#">Research</a>
+                                      <a class="dropdown-item" href="services/training/">Training</a>
+                                </div>
+                            </li>
+                            <li class="nav-item dropdown">
+                                    <a class="text-white nav-link dropdown-toggle " href="about/" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                      Sectors
+                                    </a>
+                                <div class="dropdown-menu bg-warning " aria-labelledby="navbarDropdownMenuLink">
+                                      <a class="dropdown-item" href="#">Oil & Gas</a>
+                                      <a class="dropdown-item" href="#">Mining</a>
+                                      <a class="dropdown-item" href="#">Geothermal</a>
+                                      <a class="dropdown-item" href="#">Construction</a>
+                                      <a class="dropdown-item" href="#">Water</a>
+    
+                                </div>
+                            </li>
+                          <li class="nav-item">
+                            <a class="nav-link btn bg-white text-dark " href="contact/">Contact Us</a>
+                          </li>
+                        </ul>
+                      </div> -->
+                    </div>
+        
+      </nav>
+      <div class="container text-center">
+            <span class="alert-primary alert  m-auto" role="alert">
+                WATER
+              </span>
+      </div>
+      
+      <h1 class="display-2 text-center text-white">{{course.title}}</h1>
+</header>

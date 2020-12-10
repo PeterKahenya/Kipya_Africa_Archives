@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+<div style="height:100%" class="d-flex flex-column align-items-center justify-content-space-between">
+    <h4>Add Borehole</h4>
+    <form action="" method="post">
+        {% csrf_token %}
+        <input type="text" class="form-control" name="first_name" placeholder="First Name...">
+        <input type="text" class="form-control" name="last_name" placeholder="Last Name...">
+        <input type="text" class="form-control" name="email" placeholder="Email...">
+        <input type="password" class="form-control" id="password" name="password" placeholder="Password">
+        <input type="password" class="form-control" id="confirm_password" placeholder="Confirm Password">
+        <input type="text" class="form-control" name="meter_id" placeholder="Meter ID">
+        <input type="text" class="form-control"  name="longitude" placeholder="Longitude">
+        <input type="text" class="form-control" name="latitude" placeholder="Latitude">
+
+        <button type="submit" class="btn btn-primary">  Add </button>
+    </form>
+</div>
+{% endblock %}

@@ -1,0 +1,20 @@
+<div id="stepOne" class="align-items-center justify-items-center flex-column" style="width: 90%!important;">
+    <select name="title" class="col-6 custom-select  my_input" id="title">
+        <option value="Prof.">Prof.</option>
+        <option value="Dr.">Dr.</option>
+        <option value="Eng.">Eng.</option>
+        <option selected value="Mr.">Mr.</option>
+        <option value="Ms.">Ms.</option>
+        <option value="Mrs.">Mrs.</option>
+    </select>
+    <input class="form-control my_input" placeholder="First name..." id="first_name" name="first_name" onchange="nameChanged()" />
+    <input class="form-control my_input" placeholder="Last name..." id="last_name" name="last_name" onchange="nameChanged()" />
+    <input class="form-control my_input" placeholder="Organization..." id="organization" name="organization" />
+    <input class="form-control my_input" placeholder="Job Title..." name="job_title" />
+    <br>
+    <div class="text-center">
+        <button class="btn btn-success" type="button" onclick="goToNew('stepOne','stepTwo',true)">
+            Next
+        </button>
+    </div>
+</div>

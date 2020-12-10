@@ -1,0 +1,142 @@
+{% extends "base.html" %} 
+{% load static %} 
+{% block title %}
+Pricing
+{% endblock %}
+{% block content %}
+<link rel="stylesheet" href="{% static 'css/home.css' %}" />
+
+<div
+class="col-xs-12 col-sm-12 col-md-12 col-xl-12"
+style="background:linear-gradient(#00000080,#00000040), url('{% static 'images/osh.webp' %}');background-size:100% 100%;min-height:30vh"
+>
+<div class="d-flex flex-column align-items-center justify-content-center text-white" style="height: 100%;width:100%;">
+  <div class="title-1" >East Africa Conference on</div>
+  <div class="title-2">
+    <strong style="color: #000000;background-color: #fcca0a;">OCCUPATIONAL </strong> 
+    
+    <strong style="color: #fafafa;background-color: #05a100;">SAFETY</strong>
+    & 
+    <strong style="color: #fafafa;background-color: #0053a1;">HEALTH</strong>
+  </div>
+  
+  <!-- <hr color="white" width="100%" />
+  <div
+    class="text-center text-white"
+    style="font-family: 'Roboto', sans-serif;font-size: 1vw;"
+  >
+    Thursay 26<sup>th</sup> March 2020-Conference <br />
+    Friday 27<sup>th</sup> March 2020-Excursion <br />
+    NAIVASHA, KENYA
+  </div>
+  <hr color="white" width="100%" />
+  <div
+    style="font-family: 'Roboto',sans-serif;color: white;font-size: 1.5vw;"
+  >
+    Towards a vision of zero accident in the East Africa Extractives Industry
+</div> -->
+<br>
+  <p id="timer"></p>
+</div>
+</div>
+
+<div class="main-content">
+    <br>
+    <h4 class="text-center text-success">Participation Packages</h4>
+        <div class="d-flex flex-row flex-wrap justify-content-center">
+        <div class="card text-white bg-warning m-3" style="max-width: 18rem;">
+          <div class="card-header font-weight-bold">GOLD SPONSOR</div>
+          <div class="card-body">
+            <h5 class="card-title">Price: USD 3,000 + VAT</h5>
+            <ul class="display-6 small text-dark" style="font-weight: 0.1vw !important;list-style-type: square;">
+                <li>Recognition as a sponsor of the conference</li>
+                <li>Lead sponsor of keynote speech by guest of honour</li>
+                <li>3 Free exhibition spaces, 10 feet x 10 feet</li>
+                <li>1 Speaker slot on a topic of choice, at a prime time in the Conference program / Session program</li>
+                <li>Reserved sitting for key delegates</li>
+                <li>Company marketing material placed on conference table</li>
+                <li>Company promotional footage running concurrently with conference presentations /session presentations</li>
+                <li>3 sponsor’s banners to be placed in the main conference hall</li>
+                <li>Company name, logo, to be placed on conference program and website</li>
+                <li>A copy of attendance list with the contacts of all the conference participants</li>
+                <li>Full page advert in the conference program</li>
+            </ul>
+          </div>
+        </div>
+        <div class="card text-white bg-gray m-3" style="max-width: 18rem;">
+            <div class="card-header text-dark font-weight-bold">SILVER SPONSOR</div>
+            <div class="card-body">
+              <h5 class="card-title text-dark">Price: USD 1,500 + VAT</h5>
+              <ol class="display-6 small text-dark" style="font-weight: 0.1vw !important;list-style-type: circle;">
+                  <li>Recognition as a sponsor of the conference</li>
+                  <li>2 Free exhibition spaces, 10 feet x 10 feet</li>
+                  <li>Company marketing material placed on conference table</li>
+                  <li>2 sponsor’s banners to be placed in the main conference hall</li>
+                  <li>Company name, logo, to be placed on conference program and website</li>
+                  <li>A copy of attendance list with the contacts of all the conference participants</li>
+                  <li>Half page advert in the conference program</li>
+              </ol>
+            </div>
+          </div>
+          <div class="card text-white bg-secondary m-3" style="max-width: 18rem;">
+            <div class="card-header text-gray font-weight-bold">EXHIBITOR</div>
+            <div class="card-body">
+              <h5 class="card-title text-gray">Price: USD 750 + VAT</h5>
+              <ol class="display-6 small text-gray" style="font-weight: 0.1vw !important;list-style-type: initial;">
+                  <li>Recognition as a sponsor of the conference</li>
+                  <li>1 Free exhibition space, 10 feet x 10 feet</li>
+                  <li>Company marketing material placed on conference table</li>
+                  <li>1 sponsor’s banner to be placed in the main conference hall</li>
+                  <li>Quarter page advert in the conference program</li>
+              </ol>
+            </div>
+          </div>
+          
+
+      </div>
+      <li class="item button"><a href="contact">Book</a></li>
+      <br>
+      <hr>
+      <br>
+        <h4 class="text-center text-dark">Delegate Participant</h4>
+        <div class="d-flex flex-row flex-wrap justify-content-center">
+            <div class="card text-white bg-primary m-3" style="max-width: 18rem;">
+                <div class="card-header text-gray font-weight-bold">DELEGATE</div>
+                <div class="card-body">
+                  <h5 class="card-title text-gray">Price: USD 50/KES 5,000 + VAT</h5>
+                  <ol class="display-6 small text-gray" style="font-weight: 0.1vw !important;list-style-type: initial;">
+                    <li>Access to all the conference events and Panel Discussions</li>
+                  </ol>
+                </div>
+              </div>
+        <div class="card text-white bg-success m-3" style="max-width: 18rem;">
+          <div class="card-header font-weight-bold">FIELD EXCUSION</div>
+          <div class="card-body">
+            <h5 class="card-title display-5 text-gray">Price: USD 35/KES 3,500 + VAT</h5>
+            <p class="card-text">
+                Excursion Tour 
+            </p>
+          </div>
+        </div>
+        </div>
+      </div>
+
+
+  
+        </div>
+      </div>
+    </div>
+  
+    <div style="display: flex;align-items: center;justify-content: center; width: 100%">
+      <a href="{% static 'docs/program.pdf' %}" class="secondary_btn">Download Program</a>
+      <a href="{% static 'docs/concept.pdf' %}" class="secondary_btn">Download Concept Note</a>
+  
+    </div>
+    <br>
+   <!-- <h3 class="text-center">Free Transport </h3>
+    <h3 class="text-center">KICC Transport </h3> -->
+  </div>
+
+<script src="{% static 'js/home.js' %}"></script>
+
+{% endblock %}

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Modules List</title>
+          <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-157832312-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-157832312-1');
+</script>
+</head>
+<body>
+    <h1>Modules List</h1>
+
+    {% for module in modules_list %}
+
+    <a href="{{module.id}}/">{{ forloop.counter }} - {{module.title}}</a>
+
+    {% endfor %}
+    {% if request.user.is_authenticated and request.user.is_staff %}
+
+    <a href="add/">Add</a>
+
+    {% endif %}
+
+
+    
+</body>
+</html>

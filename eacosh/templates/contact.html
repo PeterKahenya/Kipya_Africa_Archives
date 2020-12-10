@@ -1,0 +1,87 @@
+{% extends "base.html" %} 
+{% load static %} 
+{% block title %}
+Contact
+{% endblock %}
+{% block content %}
+<link rel="stylesheet" href="{% static 'css/home.css' %}" />
+
+<div
+class="col-xs-12 col-sm-12 col-md-12 col-xl-12"
+style="background:linear-gradient(#00000080,#00000040), url('{% static 'images/osh.webp' %}');background-size:100% 100%;min-height:30vh"
+>
+<div
+  class="d-flex flex-column align-items-center justify-content-center text-white"
+  style="height: 100%;width:100%;"
+
+>
+  <div class="title-1" >East Africa Conference on</div>
+  <div class="title-2">
+    <strong style="color: #000000;background-color: #fcca0a;">OCCUPATIONAL </strong> 
+    
+    <strong style="color: #fafafa;background-color: #05a100;">SAFETY</strong>
+    & 
+    <strong style="color: #fafafa;background-color: #0053a1;">HEALTH</strong>
+  </div>
+  
+  <!-- <hr color="white" width="100%" />
+  <div
+    class="text-center text-white"
+    style="font-family: 'Roboto', sans-serif;font-size: 1vw;"
+  >
+    Thursay 26<sup>th</sup> March 2020-Conference <br />
+    Friday 27<sup>th</sup> March 2020-Excursion <br />
+    NAIVASHA, KENYA
+  </div>
+  <hr color="white" width="100%" />
+  <div
+    style="font-family: 'Roboto',sans-serif;color: white;font-size: 1.5vw;"
+  >
+    Towards a vision of zero accident in the East Africa Extractives Industry
+</div> -->
+<br>
+  <p id="timer"></p>
+</div>
+</div>
+
+<div class="main-content">
+    
+        <div class="d-flex align-items-center justify-content-center">
+                <div class="col-xs-12 col-xl-6 p-3 m-4" id="contactform">
+                    {% if not CONTACTED %}
+                        <div class="card">
+                            <p class="h4">Contact us</p>
+                            <form action="" method="post">
+                                {% csrf_token %}
+                                <input type="text" placeholder="Full name" name="fullname" id="name" class="m-1 form-control">
+                                <input type="email" placeholder="Email" name="email" id="email" class="m-1 form-control">
+                                <input type="tel" placeholder="Phone Number" name="phone" id="phone" class="m-1 form-control">
+                                <textarea placeholder="Ask us something..." name="message" id="message" cols="30" rows="6" class="form-control"></textarea>
+                                <button class="m-1 col-2 justify-content-center btn btn-primary">Send</button>
+                            </form>
+                        </div>
+                    {% else %}
+                        <div id="contactdone">
+                            <div class="alert alert-info">
+                                Thank You for expressing interest in EACOSH. We will contact you in a moment
+                            </div>
+                        </div>
+                    {% endif %}
+                </div>
+            </div>
+      </div>
+    </div>
+  
+    {% comment %} <div style="display: flex;align-items: center;justify-content: center; width: 100%">
+      <a href="{% static 'docs/program.pdf' %}" class="secondary_btn">Download Program</a>
+      <a href="{% static 'docs/concept.pdf' %}" class="secondary_btn">Download Concept Note</a>
+  
+    </div> {% endcomment %}
+    <br>
+   <!-- <h3 class="text-center">Free Transport </h3>
+    <h3 class="text-center">KICC Transport </h3> -->
+  </div>
+
+<script src="{% static 'js/home.js' %}"></script>
+
+{% endblock %}

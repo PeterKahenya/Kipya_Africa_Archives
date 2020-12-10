@@ -1,0 +1,117 @@
+{% load static %}
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http//www.w3.org/TR/html4/loose.dtd">
+<html lang="en">
+  <head>
+    <style type="text/css">
+    *{
+      font-size: 1.1rem;
+      font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    }
+      @page {
+        size: letter portrait;
+        margin: 0cm;
+        background-color: rgb(245, 214, 179);
+    }
+        #official-header{
+            margin: 30px 0 80px 80px;
+            /* background-color: blue; */
+            width: 2480px;
+        }
+    </style>
+    <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous"> -->
+
+  </head>
+
+  <body style="padding: 0;margin: 0;">
+    <div>
+      <div>
+        <img width="2481px" height="200px" src="https://www.eacosh.com/static/images/eacosh_cutout_v4.png" alt="" />
+      </div>
+      <div>
+        <h1 style="text-align: center;font-weight: bolder;">Receipt</h1>
+        <p style="text-align: center;">
+          Receipt Number:
+          <strong>
+           {{receipt_no}}
+          </strong>
+        </p>
+        <br>
+        <p style="text-align: center;">
+          Received from:
+          <br>
+          <strong>
+            {{attendee.title}}
+            {{attendee.first_name}}
+            {{attendee.last_name}}
+          </strong>
+          
+        </p>
+        
+        <br>
+        <p style="text-align: center;">
+          Organization:
+          <br>
+          <strong>
+            {{attendee.organization}}
+          </strong>
+          
+        </p>
+        <br>
+        <p style="text-align: center;">
+          Sum of:
+          <br>
+          <strong>
+            KES. {{attendee.mpesa_amount}}
+          </strong>
+          
+        </p>
+        <br>
+        <p style="text-align: center;">
+          Payment details:
+          <br>
+          Method:<strong>
+            Lipa na Mpesa Paybill 749320
+          </strong>
+          <br>
+          Transaction Code:<strong>
+            {{attendee.mpesa_code}}
+          </strong><br>
+          Account No.:<strong>
+            {{attendee.mpesa_name}}
+          </strong><br>
+          Receiving Organization:<strong>
+            KIPYA AFRICA LTD.
+          </strong><br>
+          Received On:<strong>
+            {{date}}
+          </strong>
+          <br>                  
+        </p>
+
+        <p style="text-align: center;">
+          Being payment for:
+          <strong>
+            EACOSH ATTENDANCE FEE
+          </strong>
+          <br>
+          {% comment %} Package:
+          <strong>
+            {% if attendee.amount=5000 %}
+            
+            
+            {% endif %}
+          </strong> {% endcomment %}
+        </p>
+      </div>
+      <br>
+      <br>
+      <hr color="wheat">
+      <div style="text-align: center;">
+        Contact us <br>
+        Email: info@ecosh.com <br>
+        Phone: +254728615438 <br>
+        Website: www.eacosh.com <br>
+      </div>
+    </div>
+  </body>
+</html>

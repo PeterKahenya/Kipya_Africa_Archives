@@ -1,0 +1,38 @@
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/nav.css' %}">
+<header class="mdc-top-app-bar mdc-top-app-bar--fixed" style="background: #0000009e !important;">
+    <div class="mdc-top-app-bar__row">
+      <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-start">
+        <button class="material-icons mdc-top-app-bar__navigation-icon mdc-icon-button" aria-label="Open navigation menu">menu</button>
+        <a href="/" class="mdc-top-app-bar__title"
+              style="padding:0 auto !important;display: flex !important;justify-content: center !important; align-items: center !important; margin-right: 5px;">
+          <img width="120px" src="{% static 'images/icons/icon_white.png' %}" alt="">
+        </a>
+      </section>
+
+      <section style="padding-right: 20px !important;" class="mdc-top-app-bar__section mdc-top-app-bar__section--align-end" role="toolbar">
+
+        <div class="menusBar">
+          <a href="/about" class="menusBarItem">About</a>
+          <a href="/pricing" class="menusBarItem">Pricing</a>
+          <a href="/speakers" class="menusBarItem">Speakers</a>
+          <a href="/sponsors" class="menusBarItem">Sponsors</a>
+          <a href="/past-events" class="menusBarItem">Past Events</a>
+          <a href="/contact" class="menusBarItem btn bg-white text-dark">Contact</a>
+        </div>
+
+      <!--   <a href="/experience" class="primary_button" style="padding: 5px;" aria-label="Experience">
+          <span>Experience</span>
+        </a> -->
+
+      </section>
+    </div>
+</header>
+<script>
+    const topAppBarElement = document.querySelector('.mdc-top-app-bar');
+    const topAppBar = new mdc.topAppBar.MDCTopAppBar(topAppBarElement);
+    const drawer = mdc.drawer.MDCDrawer.attachTo(document.querySelector('.mdc-drawer'));
+    topAppBar.listen('MDCTopAppBar:nav', () => {
+      drawer.open = !drawer.open;
+    });
+</script>

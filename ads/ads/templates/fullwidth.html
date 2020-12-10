@@ -1,0 +1,235 @@
+{% extends "base.html" %}
+{% load static cms_tags menu_tags %}
+
+{% block title %}{% page_attribute "page_title" %}{% endblock title %}
+
+{% block content %}
+    <style>
+
+        .bd-placeholder-img {
+            font-size: 1.125rem;
+            text-anchor: middle;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+
+        @media (max-width: 767px){
+            .carousel,.carousel-inner,.carousel-item,.slide-image{
+                max-height: 55vh!important;
+
+            }
+            .leading-slide-headline{
+                line-height: 5vh!important;
+                margin-top: 30%!important;
+            }
+            .jumbotron{
+                background: #fcca0a!important;
+                color: black!important;
+            }
+        }
+        @media (min-width: 768px) {
+            .bd-placeholder-img-lg {
+                font-size: 3.5rem;
+            }
+            .leading-slide-headline{
+                line-height: 80px!important;
+            }
+            .carousel,.carousel-inner,.carousel-item,.slide-image{
+                max-height: 80vh!important;
+                margin: auto!important;
+            }
+        }
+
+        .carousel-item {
+            position: relative !important;
+        }
+
+        .black-overlay {
+            position: absolute;
+            top: 0px;
+            left: 0px;
+            height: 100%;
+            width: 100%;
+            background: rgba(0, 0, 0, 0.3);
+        }
+        .nav-link{
+            font-weight: bold;
+        }
+        .industry>img{
+            border-radius: 21px 21px 0 0;
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+    <!-- Custom styles for this template -->
+   <link href="{% static 'assets/css/product.css' %}" rel="stylesheet">
+    <link href="{% static 'assets/css/style.css' %}" rel="stylesheet">
+
+<main role="main">
+    <div id="myCarousel" class="carousel slide" data-ride="carousel">
+        <ol class="carousel-indicators">
+            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+            <li data-target="#myCarousel" data-slide-to="1"></li>
+            <li data-target="#myCarousel" data-slide-to="2"></li>
+            <li data-target="#myCarousel" data-slide-to="3"></li>
+
+        </ol>
+        <div class="carousel-inner">
+            {% placeholder  "slides" %}
+        </div>
+    </div>
+
+    <div class="jumbotron shadow-sm bg-gray">
+        <div class="container who-we-are-text text-center">
+            {% placeholder  "who-we-are" or %}
+                <h1 class="display-6">Who We Are</h1>
+                <p>This is a template for a simple marketing or informational website. It includes a large callout called a
+                    jumbotron and three supporting pieces of content. Use it as a starting point to create something more
+                    unique.</p>
+                <p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more &raquo;</a></p>
+            {% endplaceholder %}
+        </div>
+    </div>
+
+
+    <div class="container">
+        {% placeholder "what-we-do" or %}
+            <h1 class="display-5 text-center p-3 mb-4">What we do</h1>
+        {% endplaceholder %}
+        <div class="d-flex justify-content-center flex-wrap">
+            <div class="card m-4 text-center p-3 shadow-lg d-flex flex-column justify-content-space-between" 
+                 style="width: 22.5rem;height: 22.5rem;border-radius: 8px!important;background-color: #FFFFFF;
+                        background-image: linear-gradient(180deg, #dedede 0%, #dedede 50%, #dedede 100%);border: none;">
+                        {% placeholder "training-image" or %}
+                            <img src="{% static 'images/logos/training5.png' %}" 
+                            style="max-width: 10rem;height:auto;align-self: center;border-radius: 10px;">
+                        {% endplaceholder %}
+                    
+                    <small class="text-dark mt-5">
+                        {% placeholder "training-text" or %}
+                            <strong class="text-center">TRAINING</strong>
+                            <br>
+                            This is a template for a simple marketing or informational website. It includes a large callout called a
+                            jumbotron and three supporting pieces of content. Use it as a starting point to create something more
+                            unique.
+                        {% endplaceholder %}
+                    </small>
+            </div>
+            <div class="card m-4 text-center p-3 shadow-lg d-flex flex-column justify-content-space-between" 
+                 style="width: 22.5rem;height: 23rem;border-radius: 8px!important;background-color: #FFFFFF;
+                        background-image: linear-gradient(180deg, #151001 0%, #151001 50%, #171001 100%);border: none;">
+                        {% placeholder "research-image" or %}
+                            <img src="{% static 'images/logos/research.png' %}" 
+                                style="max-width: 13rem;height:auto;align-self: center;border-radius: 10px;width: 500px;height: 10rem">
+                        {% endplaceholder %}
+                    
+                    <small class="text-warning mt-5">
+                        {% placeholder "research-text" or %}
+                            <strong class="text-center">RESEARCH</strong>
+                            <br>
+                            This is a template for a simple marketing or informational website. It includes a large callout called a
+                            jumbotron and three supporting pieces of content. Use it as a starting point to create something more
+                            unique.
+                        {% endplaceholder %}
+                    </small>
+            </div>
+            <div class="card m-4 text-center p-3 shadow-lg" 
+                 style="width: 22.5rem;height: 22.5rem;border-radius: 8px!important;background-color: #FFFFFF;
+                        background-image: linear-gradient(180deg, #fcca0a 0%, #fcca0a 50%, #fcca0a 100%);border: none;">
+                        {% placeholder "personnel-image" or %}
+                            <img src="{% static 'images/logos/personnel1.png' %}" 
+                                style="max-width: 10rem;height:auto;align-self: center;border-radius: 10px;">
+                        {% endplaceholder %}
+                    <small class="text-dark mt-5">
+                        {% placeholder "personnel-text" or %}
+                            <strong class="text-center">PERSONNEL</strong>
+                            <br>
+                            This is a template for a simple marketing or informational website. It includes a large callout called a
+                            jumbotron and three supporting pieces of content. Use it as a starting point to create something more
+                            unique.
+                        {% endplaceholder %}
+                    </small>
+            </div>
+        </div>
+    </div>
+    
+    <br>
+    <br>
+    <hr>
+    <br>
+    <h3 class="text-center p-1">Industries We Operate In</h3>
+    <br>
+    <div class="d-md-flex flex-md-equal w-100 my-md-3 pl-md-3">
+
+        <div class="mr-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center text-white overflow-hidden" 
+        style="background: #141001;">
+          <div class="my-3 py-3">
+            {% placeholder "oil-and-gas-text" %}
+          </div>
+          <div class="bg-light industry shadow-sm mx-auto" 
+          style="width: 70%; height: 300px; border-radius: 21px 21px 0 0;">
+            {% placeholder "oil-and-gas-image" %}
+          </div>
+        </div>
+
+        <div class="mr-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden" style="background: #fcca0a;">
+          <div class="my-3 p-3">
+            {% placeholder "mining-text" %}
+          </div>
+          <div class="bg-dark industry shadow-sm mx-auto" style="width: 70%; height: 300px; border-radius: 21px 21px 0 0;">
+            {% placeholder "mining-image" %}
+    
+          </div>
+        </div>
+
+    </div>
+      
+    <div class="d-md-flex flex-md-equal w-100 my-md-3 pl-md-3">
+        <div class="mr-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden"
+            style="background: #141001;">
+          <div class="my-3 p-3 text-white">
+            {% placeholder "geothermal-text" %}
+          </div>
+          <div class="bg-dark industry shadow-sm mx-auto" style="width: 70%; height: 300px; border-radius: 21px 21px 0 0;">
+            {% placeholder "geothermal-image" %}
+        </div>
+        </div>
+        <div class="bg-dark mr-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center text-white overflow-hidden"
+             style="background: #fcca0a !important;">
+          <div class="my-3 py-3">
+            {% placeholder "construction-text" %}
+          </div>
+          <div class="bg-light industry shadow-sm mx-auto" style="width: 70%; height: 300px; border-radius: 21px 21px 0 0;">
+            {% placeholder "construction-image" %}
+          </div>
+        </div>
+      </div>
+      
+      <div class="d-md-flex flex-md-equal w-100 my-md-3 pl-md-3">
+        <div class="mr-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden" style="background: #141001!important">
+          <div class="my-3 p-3">
+            {% placeholder "water-text" %}
+          </div>
+          <div class="bg-white industry shadow-sm mx-auto" style="width: 70%; height: 300px; border-radius: 21px 21px 0 0;">
+            {% placeholder "water-image" %}
+        </div>
+        </div>
+        <div class="mr-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden " style="background-color:#FFFFFF; padding: 20px;">
+            {% include 'rfp.html' %}
+        </div>
+      </div>
+
+      <br>
+      <br>
+      <hr>
+      <br>
+    <h3 class="text-center">Meet Our Partners</h3>
+      <br>
+      <div class="d-flex container justify-content-center align-items-center flex-wrap partners p-4">
+          {% placeholder "partners" %}
+      </div>
+
+</main>
+{% endblock content %}

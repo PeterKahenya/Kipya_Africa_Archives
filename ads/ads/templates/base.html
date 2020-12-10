@@ -1,0 +1,213 @@
+{% load cms_tags static menu_tags sekizai_tags %}
+<!doctype html>
+<html>
+<head>
+    <title>{% block title %}This is my new project home page{% endblock title %}</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link rel="shortcut icon" href="{% static 'assets/images/kipya_iconv2.png' %}" type="image/x-icon">
+    <meta name="google-site-verification" content="Q1A0_nlX5YLHKQgqot4FsYWT3RCVfK1HHgmy3UnE-fw" />
+    <meta content="#000000" name="theme-color" >
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-164223966-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-164223966-1');
+    </script>
+
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+          integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+          <link href="{% static 'assets/css/style.css' %}" rel="stylesheet">
+
+    <style>
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+      }
+
+
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+
+      @media screen and (min-width: 769px) {
+            .brand-title {
+                font-size: 1vw;
+            }
+        }
+
+        /* If the screen size is 600px wide or less, set the font-size of <div> to 30px */
+        @media screen and (max-width: 768px) {
+            .brand-title {
+                font-size: 1.7vw;
+            }
+            .dropdown-menu{
+                background: transparent!important;
+            }
+            .dropdown-item{
+                color: #fcca0a!important;
+            }
+            .footer-section{
+                margin: 5vh!important;
+                border-top: 0.5px solid #ccc!important;
+                padding-top: 5vw!important;
+            }
+}
+
+    </style>
+    {% render_block "css" %}
+    <style type="text/css">
+            div.cms .cms-toolbar-item-logo a:before {
+    /*display: none;*/
+        content: "ADS Admin";
+        background: #fcca0a;
+        padding: 10px;
+}
+    </style>
+</head>
+<body>
+{% cms_toolbar %}
+
+
+<nav class="navbar navbar-expand-lg navbar-light fixed-top shadow-lg" style="background: #000000">
+    <div class="container" style="width:100%!important">
+        <button style="border: none!important;"
+                class="navbar-toggler mt-4"
+                data-toggle="collapse"
+                data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent"
+                aria-expanded="false"
+                aria-label="Toggle navigation"
+        >
+                <span style='font-size:1.8em;cursor: pointer;color:#fcca0a;'>
+                    &#9776;
+                </span>
+        </button>
+        <a class="navbar-brand ml-3 d-flex flex-column align-items-center" href="/"  >
+            <img src="{% static 'assets/images/kipya_logov3.png' %}" width="140px"  alt="">
+            <!-- <p class="subbrand">AFRICA DRILLING SOLUTIONS</p> -->
+        </a>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav d-flex flex-success justify-content-center" style="width:100%!important">
+                <li class="nav-item active">
+                    <a class="nav-link text-white" href="/">HOME <span class="sr-only">(current)</span></a>
+                </li>
+
+                <li class="nav-item dropdown text-white">
+                    <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdown" role="button"
+                       data-toggle="dropdown"
+                       aria-haspopup="true" aria-expanded="false">
+                       ABOUT US
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="/who-we-are">Who We Are</a>
+                        <a class="dropdown-item" href="/our-history">Our History</a>
+                    </div>
+                </li>
+
+                <li class="nav-item dropdown text-white">
+                    <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdown" role="button"
+                       data-toggle="dropdown"
+                       aria-haspopup="true" aria-expanded="false">
+                        SERVICES
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="/en/personnel">Personnel</a>
+                        <a class="dropdown-item" href="/en/research">Research</a>
+                        <a class="dropdown-item" href="/en/training">Training</a>
+                    </div>
+                </li>
+                <li class="nav-item dropdown text-white">
+                    <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdown" role="button"
+                       data-toggle="dropdown"
+                       aria-haspopup="true" aria-expanded="false">
+                       SECTORS
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="/oil-and-gas">Oil & Gas</a>
+                        <a class="dropdown-item" href="/mining">Mining</a>
+                        <a class="dropdown-item" href="/geothermal">Geothermal</a>
+                        <a class="dropdown-item" href="/construction">Construction</a>
+                        <a class="dropdown-item" href="/water">Water</a>
+                    </div>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link text-white" href="/en/gallery">GALLERY</a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link text-white" href="/en/contact-us">CONTACT US</a>
+                </li>
+
+            </ul>
+        </div>
+        <form class="form-inline my-2 my-lg-0 mt-4">
+            <a class="text-muted" href="#" aria-label="Search">
+                <!-- <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="#fcca0a"
+                     stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="mx-3" role="img"
+                     viewBox="0 0 24 24" focusable="false"><title>Search</title>
+                    <circle cx="10.5" cy="10.5" r="7.5"/>
+                    <path d="M21 21l-5.2-5.2"/>
+                </svg> -->
+            </a>
+        </form>
+    </div>
+</nav>
+{% block content %}{% endblock content %}
+<footer class="pt-5 bg-dark" style="background: #000000 !important;">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3 col-xl-3 footer-section">
+                <img src="{% static 'assets/images/kipya_iconv2.png' %}" width="40" height="45" alt="">
+                <br>
+                <label class="text-white text-center mb-3 mt-1">&copy;2020</label>
+                <br>
+                <div class="mt-1 d-flex flex-column">
+                    <h4 class="text-white">Other Brands</h4>
+                    {% static_placeholder "our-other-brands" %}
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3 col-xl-3 footer-section">
+                <ul class="list-unstyled text-small">
+                    {% static_placeholder "footer-quicklinks" %}
+                </ul>
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3 col-xl-3 footer-section">
+                <ul class="list-unstyled text-small">
+                    {% static_placeholder "footer-contactus-followus" %}
+<!--                     <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d997.201977167931!2d36.782488229153486!3d-1.289494259175824!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x182f10a795dd0dbb%3A0xc106df4c517887da!2sKipya%20(Africa)%20Limited!5e0!3m2!1sen!2ske!4v1585300066704!5m2!1sen!2ske" width="250" height="250" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe> -->
+                </ul>
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3 col-xl-3 footer-section">
+                <div class="list-unstyled text-small">
+                    {%  static_placeholder "footer-newsletter" %}
+                    {% include 'subscribe.html' %}
+                </div>
+            </div>
+        </div>
+    </div>
+            <div class="text-center p-4" style="background: black;">
+            {% static_placeholder "footer-copyright" %}
+        </div>
+</footer>
+
+{% render_block "js" %}
+</body>
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+        crossorigin="anonymous"></script>
+</html>

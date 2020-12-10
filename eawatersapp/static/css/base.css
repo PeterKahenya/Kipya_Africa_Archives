@@ -1,0 +1,64 @@
+html,body{
+    padding: 0;
+    margin: 0;
+    overflow-x: hidden;
+}
+
+body{
+    background: #fffefb;
+}
+
+.stat {
+    margin: 10px;
+    border: .4px dotted #a1a1a1;
+    padding: 10px;
+    background-color: #00f0207c;
+}
+
+.statmain {
+    color: #00b0f0;
+    font-weight: bold;
+    font-size: 3rem;
+}
+
+.stattext {
+    font-size: .6rem;
+    color: darkgray;
+}
+
+.primary_button{
+    background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer !important;
+    border-radius: 2px;
+    margin: 3px;
+
+}
+
+.secondary_button{
+    background-color: #0068f0; /* Green */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer !important;
+    border-radius: 2px;
+    margin: 3px;
+}
+
+
+.partner,
+.endorser {
+    margin: 10px;
+    padding: 10px;
+}
+

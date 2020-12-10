@@ -1,0 +1,70 @@
+{% load static %}
+  
+  <div  id="stepThree" style="display:none;" >
+    
+    <!-- <input type="checkbox" id="excursion" name="excursion" value="No">
+    <label for="excursion">Attend Excursion?</label><br> -->
+    <div id="paymentspage">
+      <div class="text-center">
+        <img width="150px" src="{% static 'images/lipanampesalogo.png' %}" alt="" />
+      </div>
+      <div class="text-center">
+        Paybill: <strong>749320</strong><br />
+        Account: <strong id="account_no"></strong><br />
+        Amount: <strong id="package_fee_mpesa">KES 5000.00</strong>
+
+      </div>
+      <small id="paymentstatus">
+        <div class="alert alert-secondary" role="alert">
+          Awaiting Payment...
+        </div>
+      </small>
+    </div>
+
+    <div id="other_packages" style="display: none;">
+      Amount: <strong id="package_fee">KES 5000.00</strong>
+    </div>
+    
+    <input type="hidden" name="is_paid" id="is_paid" value="No" />
+    <input type="hidden" name="mpesa_code" id="mpesa_code" value="NA" />
+    <input type="hidden" name="mpesa_name" id="mpesa_name" value="NA" />
+    <input type="hidden" name="mpesa_amount" id="mpesa_amount" value="0.0"/>
+    <br>
+    <div class="text-center">
+      <button class="btn btn-warning" type="button" onclick="goToNew('stepThree','stepTwo',false)">
+        Previous
+      </button>
+      <input value="Pay Later" id="payLaterBtn" class="btn btn-outline-primary" type="submit" />
+      <button class="btn btn-success" type="submit" id="finishBtn">
+        Finish
+      </button>
+    </div>
+  </div>
+<div id="pageloader" style="width:100%;display: none;">
+   <img src="{% static 'images/loader.gif' %}" style="width: 100%;"  alt="processing..." />
+    <br>
+    <h5 style="color: #fcca0a;text-align: center;">Please Wait...</h5>
+</div>
+  <script>
+    $("#excursion").change(function () {
+      if(this.checked){
+        $("#excursion").val("YES")
+        alert($("#excursion").val())
+      }else{
+        $("#excursion").val("No")
+        alert($("#excursion").val())
+
+      }
+    })
+    $("#finishBtn").on("click", function(){
+      console.log("sending...")
+        $("#stepThree").hide();
+        $("#pageloader").fadeIn();
+
+  });//submit
+      $("#payLaterBtn").on("click", function(){
+        console.log("sending...")
+        $("#stepThree").hide();
+        $("#pageloader").fadeIn();
+  });//submit
+  </script>

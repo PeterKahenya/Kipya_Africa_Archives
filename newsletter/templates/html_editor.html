@@ -1,0 +1,15 @@
+{% load static %}
+    
+<textarea name="content" style="text-align:left!important;border: none!important;" id="summernote"></textarea><br>
+<div class="d-flex align-items-center justify-content-center  m-2">
+  <button id="post_save_btn" class="m-2 btn btn-success shadow-lg">Save</button>
+  <span class="btn btn-warning shadow-lg" onclick="location.reload()">Cancel</span>
+</div>
+
+<script>
+        function edit(post_number,content) {
+          $("#summernote"+post_number).summernote('code',content)
+          $("#post_"+post_number).hide()
+          $("#post_"+post_number+"_edit_form").show()
+        }
+</script>

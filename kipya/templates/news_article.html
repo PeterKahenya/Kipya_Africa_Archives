@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% load cms_tags static %}
+{% block content %}
+<link rel="stylesheet" href="{% static 'css/page_two.css' %}">
+<div class="page-section section-header">
+    <div class="page-section-header-layer page-section-header-background-image">
+        {% placeholder "leading image" %}
+    </div>
+    
+    <div class="page-section-header-layer page-section-header-fade">                  
+    </div>
+
+    <div class="page-section-header-layer page-section-header-lines">
+        
+      </div>
+      
+    <div class="page-section-header-layer page-section-header-content">
+      {% include 'navbar.html' %}
+      <div class="header-content">
+            {% placeholder "headline" %}
+      </div>
+    </div>
+    {% include "menu.html" %}
+</div>
+<div class="page-section">
+  {% placeholder "Article Content" %}
+</div>
+<script src="{% static 'js/jquery.min.js' %}" charset="utf-8"></script>
+<script src="{% static 'js/bootstrap.min.js' %}" charset="utf-8"></script>
+
+{% endblock %}

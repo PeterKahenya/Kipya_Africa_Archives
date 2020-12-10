@@ -1,0 +1,64 @@
+@import url('https://fonts.googleapis.com/css?family=Asul&display=swap');
+::-webkit-scrollbar {
+    display: none;
+}
+html,body{
+    padding: 0;
+    margin: 0;
+    font-family: "Asul",sans-serif;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    overflow-x: hidden;
+
+}
+
+.page-section{
+    width: 100%;
+    min-height: 100vh;
+}
+.section-header{
+    background:radial-gradient(#000000, #141001, #353106);
+}
+
+.page-section-header-layer{
+  position: absolute;
+  width: 100vw;
+  height: 100%;
+}
+.page-section-header-background{
+  z-index:1;
+  background:radial-gradient(#000000, #141001, #403c06);
+  filter: blur(5px);
+}
+.page-section-header-lines{
+  z-index: 2;
+}
+.page-section-header-content{
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+
+.header-content{
+  width: 90%;
+  margin:auto auto;
+  flex-grow: 45;
+}
+
+@-webkit-keyframes fade {
+  from {opacity: 0} 
+  to {opacity: 1}
+}
+
+@keyframes fade {
+  from {opacity: 0} 
+  to {opacity: 1}
+}
+
+footer *{
+  color: white;
+}

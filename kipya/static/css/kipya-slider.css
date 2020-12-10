@@ -1,0 +1,88 @@
+.kipya-slides-container{
+    /* background: #008800; */
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column; /* change this to row on larger screens */
+    justify-content: space-between;
+    align-items: stretch;
+}
+
+.kipya-slides-wrapper{
+    /* background: #4b0138; */
+    width: 100%; /* change this to 95% on larger screens */
+    height: 90%; /* change this to 100% on larger screens */
+}
+
+.kipya-slide{
+    /* background: #0251e4; */
+    width: 100%;
+    height: 100%;
+    display: none;
+    -webkit-animation-name: fade;
+    -webkit-animation-duration: 3s;
+    animation-name: fade;
+    animation-duration: 3s;
+}
+.kipya-slide:nth-child(1){
+    display: block;
+}
+
+
+.kipya-slide>.row{
+    width: 100%!important;
+    height: 100%;
+    margin: auto;
+}
+.kipya-slide>.row *{
+    color: white;
+}
+.kipya-slide>.row>div>img{
+    flex-shrink: 0;
+    max-width: 100%;
+    max-height: 80%;
+}
+
+.kipya-slides-pagination{
+    /* background: #008800; */
+    width: 100%; /* change this to 5% on larger screens */
+    height: 10%; /* change this to 100% on larger screens */
+    display: flex;
+    flex-direction: row; /* change this to column on larger screens */
+    align-items: center;
+    justify-content: center;
+}
+
+
+.dot {
+    cursor: pointer;
+    height: 15px;
+    width: 15px;
+    margin: 5px;
+    background-color: #eeeeee;
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.6s ease;
+}
+  
+.active, .dot:hover {
+    background-color: #fcca0a;
+}
+
+@media screen and (min-width:768px){
+    .kipya-slides-container{
+        flex-direction: row; /* change this to column on smaller screens */
+    }
+    .kipya-slides-wrapper{
+        order: 2;
+        width: 95%; /* change this to 95% on larger screens */
+        height: 100%; /* change this to 100% on larger screens */
+    }
+    .kipya-slides-pagination{
+        order: 1;
+        width: 5%; /* change this to 5% on larger screens */
+        height: 100%; /* change this to 100% on larger screens */
+        flex-direction: column; /* change this to column on larger screens */
+    }
+
+}

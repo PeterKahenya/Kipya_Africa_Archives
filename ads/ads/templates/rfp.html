@@ -1,0 +1,71 @@
+<style>
+    .rfp_form{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        align-items: center;
+    }
+    .rfp_form>.rfp_input{
+        margin: 0.5rem 0;
+        width: 90% !important;
+        border: none;
+        text-align: center;
+        border-bottom: 0.5px solid #ddd;
+        font-size: 1.2rem;
+    }
+    textarea:focus, input:focus{
+        outline: none;
+    }
+    .rfp_input_text_area{
+        background-color: #f8f8f8;
+    }
+    .rfp_send_btn{
+        font-size: 1.4rem;
+        border: none;
+        padding: 10px;
+        background: #fcca0a;
+        border-radius: 4px;
+    }
+</style>
+<div class="p-4 shadow-lg" id="rfp_form">
+    <h2 class="text-center text-warning pt-2 pb-2">Let Us Help You.</h2>
+    <div class="bg-white p-4 rfp_form">
+        <input type="text" class="rfp_input" id="rfp_full_name" placeholder="Enter Full Name">
+        <input type="text" class="rfp_input" id="rfp_org_name" placeholder="Enter Organization Name">
+        <input type="tel" class="rfp_input" id="rfp_phone_number" placeholder="Enter Your  Phone Number">
+        <select name="department" class="rfp_input" id="rfp_department">
+            <option selected>Choose Sector</option>
+            <option value="oil-and-gas">Oil&Gas</option>
+            <option value="water">Water</option>
+            <option value="construction">Construction</option>
+            <option value="geothermal">Geothermal</option>
+            <option value="Mining">Mining</option>
+        </select>
+        <input type="email" class="rfp_input" id="rfp_email_address" placeholder="Enter Your Email...">
+        <textarea class="rfp_input rfp_input_text_area" id="rfp_request" cols="30" rows="8" placeholder="Describe Your Request..."></textarea>
+        <button onclick="rfp()" class="rfp_send_btn">Send</button>
+    </div>
+</div>
+<div id="rfp_success" style="display: none;" class="text-success alert alert-success" role="alert">
+    Thank you. Request is being Processed.
+</div>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script>
+    function rfp() {
+      axios.post('/rfp', {
+      fullname: $('#rfp_full_name').val(),
+      organization: $('#rfp_org_name').val(),
+      email: $('#rfp_email_address').val(),
+      request: $('#rfp_request').val(),
+    })
+    .then(function (response) {
+      if (response.data.IS_DONE===true) {
+        document.getElementById('rfp_form').style.display = 'none';
+        $('#rfp_success').fadeIn()
+      }
+    })
+    .catch(function (error) {
+      console.log(error);
+    });
+    }
+  </script>

@@ -1,0 +1,90 @@
+  <div  id="stepTwo"  class="align-items-center justify-items-center flex-column" style="width: 90%!important;display:none;" >
+    <select id="country" name="country" class="my_input col-6 custom-select" onchange="countryChanged()">
+        <option selected value="Kenya" data-code="254">Kenya</option>
+        <option value="Uganda" data-code="256">Uganda</option>
+        <option value="Tanzania" data-code="255">Tanzania</option>
+        <option value="Rwanda" data-code="250">Rwanda</option>
+        <option value="Burundi" data-code="257">Burundi</option>
+        <option value="South Sudan" data-code="211">South Sudan</option>
+        <option value="United States" data-code="1">United States</option>
+        <option value="Other" data-code="254">Other</option>
+    </select>
+    <div class="my_input input-group mb-3"> 
+      <div class="input-group-prepend">
+        <span class="input-group-text" id="country_code">254</span>
+      </div>
+      <input type="hidden" name="phone" id="phone" />
+      <input type="tel" onkeydown="limit(this);" onkeyup="limit(this);" placeholder="Phone Number" id="phone_no_part_two" style="width: 60px!important;" class="form-control" />
+
+    </div>
+    <input class="form-control my_input" placeholder="E-mail..." name="email" />
+    <div class="text-center">
+      <input type="checkbox" id="gak_select" name="gak_select" value="ok">
+      <label for="gak_select">GAK Member?</label><br>
+    </div>
+    <input class="form-control my_input" id="gak_member_no" value="NA" placeholder="GAK Member Number" style="display: none;" name="gak_member_no" />
+    
+    <select id="role" name="role" class="my_input custom-select" onchange="roleChanged(this)">
+        {% comment %} <option selected >Role in the Conference</option> {% endcomment %}
+        <option value="gold_sponsor" data-price="USD 3,000.00">Gold Sponsor</option>
+        <option value="silver_sponsor" data-price="USD 1,500.00">Silver Sponsor</option>
+        <option value="exhibitor" data-price="USD 750.00">Exhibitor</option>
+        <option selected value="delegate" data-price="KES 5,000.00">Delegate</option>
+        <option value="excursion" data-price="KES 3,500.00">Excursion</option>
+    </select>
+    
+    <br>
+    <div class="text-center">
+      <button class="btn btn-warning" type="button" id="prevBtn" onclick="goToNew('stepTwo','stepOne',false)">
+        Previous
+      </button>
+      <button class="btn btn-success" type="button" id="nextBtn" onclick="goToNew('stepTwo','stepThree',true)">
+        Next
+      </button>
+    </div>
+  </div>
+
+  <script>
+    $("#gak_select").change(function () {
+     $('#gak_member_no').toggle()
+     $('#paymentspage').toggle()
+     $('#payLaterBtn').toggle()
+     $('#finishBtn').prop('disabled', function(i, v) { return !v; })
+    })
+ $('#role').change(function () {
+      var selected = $(this).find('option:selected');
+      var extra = selected.data('price');
+
+      switch ($('#role').val()) {
+        case "delegate":
+          $("#gak_select").prop("checked")===false?$('#paymentspage').fadeIn():$('#paymentspage').fadeOut()
+          $('#package_fee_mpesa').html(extra)
+          $('#other_packages').fadeOut()
+          $('#finishBtn').attr("disabled",true)
+          $('#payLaterBtn').fadeIn()
+
+
+
+          break;
+        case "excursion":
+          $("#gak_select").prop("checked")===false?$('#paymentspage').fadeIn():$('#paymentspage').fadeOut()
+          $('#package_fee_mpesa').html(extra)
+          $('#other_packages').fadeOut()
+          $('#finishBtn').attr("disabled",true)
+          $('#payLaterBtn').fadeIn()
+
+
+          break;      
+        default:
+          $('#other_packages').fadeIn()
+
+          $('#package_fee').html(extra)
+          $('#finishBtn').attr("disabled",false)
+          $('#payLaterBtn').fadeOut()
+          $('#paymentspage').fadeOut()
+
+
+          break;
+      }
+    });
+  </script>

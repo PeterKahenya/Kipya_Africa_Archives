@@ -1,0 +1,92 @@
+{% load static %}
+
+<link rel="stylesheet" href="{% static 'css/delegate_form.css' %}">
+{% if request.GET.success %}
+
+<div id="success_info" class="alert alert-success">
+    Thank you for contacting us. We will be in touch in a moment.
+</div>
+
+{% else %}
+
+<div class="mdc-card delegateForm" style="min-width: 350px !important;" id="contactForm">
+    <h2 style="text-align: center;">Contact Us</h2>
+    
+            {% csrf_token %}
+            <select required name="issue" class="eawaters_select_input" id="issue">
+                <option value="Delegate">Delegate</option>
+                <option value="Title Sponsorship">Title Sponsorship</option>
+                <option value="Exhibition">Exhibition</option>
+                <option selected value="Sponsorship">Sponsorship</option>
+                <option value="Speaker">Speaker</option>
+                <option value="Guest">Guest</option>
+                <option value="Other Inquiry">Other Inquiry</option>
+            </select>
+
+            <input required class="eawaters_text_input" placeholder="Your Name" type="text" id="your_name" name="your_name">
+            <input required class="eawaters_text_input" placeholder="+254712345678" type="tel" id="phone" name="phone">
+            <input required class="eawaters_text_input" placeholder="john@example.com" type="email" id="email" name="email">
+            <input required class="eawaters_text_input" placeholder="Organization" type="text" id="organization" name="organization">
+            <textarea required class="eawaters_text_input" placeholder="Message" type="text" id="message" name="message"></textarea>
+            <button class="primary_button" onclick="contact()" type="button">Send</button>
+</div>
+
+{% endif %}
+
+
+
+
+<script>
+
+    function stripHtml(html)
+        {
+            var tmp = document.createElement("DIV");
+            tmp.innerHTML = html;
+            return tmp.textContent || tmp.innerText || "";
+        }
+
+
+    async function contact() {
+        var issue=$("#issue").val()
+        var your_name=$("#your_name").val()
+        var phone=$("#phone").val()
+        var email=$("#email").val()
+        var organization=$("#organization").val()
+        var message=$("#message").val()
+
+        if (issue===""||your_name===""||phone===""||email===""||organization===""||message==="") {
+            alert("Please fill all the fields")
+            return false;
+        }
+
+        $("#issue").val(stripHtml(issue))
+        $("#your_name").val(stripHtml(your_name))
+        $("#phone").val(stripHtml(phone))
+        $("#organization").val(stripHtml(organization))
+        $("#email").val(stripHtml(email))
+        $("#message").val(stripHtml(message))
+
+        response=await axios({
+            method:"POST",
+            url:"https://www.eawaters.com/en/newlead",
+            headers:{ "X-CSRFToken": $("input[name='csrfmiddlewaretoken']").val() },
+            data:{
+                issue:stripHtml(issue),
+                your_name:stripHtml(your_name),
+                phone:stripHtml(phone),
+                organization:stripHtml(organization),
+                email:stripHtml(email),
+                message:stripHtml(message)
+            }
+        })
+        console.log(response)
+        if (response.data.success) {
+            window.location.replace("/contact?success=yes")
+        } else {
+            
+        }
+
+    }
+</script>
+
+

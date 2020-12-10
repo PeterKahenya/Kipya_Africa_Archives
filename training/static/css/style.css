@@ -1,0 +1,43 @@
+body{
+    background-color: rgb(236, 236, 236);
+    height: 100vh;
+    
+}
+
+.navbar-brand{
+    width: 180px;
+}
+.ktts_logo{
+    width: 180px !important;
+}
+
+.ktts_subbrand{
+    color: #ffffff;
+    font-size: 10px;
+    font-family: 'Futura', sans-serif;
+}
+
+
+header{
+    height: 70%;
+    background: linear-gradient(#000000a0,#00000050) ,url('../images/bg4.jpg');
+    background-size: 100% 100%;
+}
+
+.menu-button{
+    padding: 30px;
+}
+.container {
+    max-width: 960px;
+  }
+
+.navbar-toggler{
+    border: none !important;
+    color: white !important;
+    font-size: 40px;
+    
+}
+
+#individuals{
+    background: url('../images/training_image_1.jpg');
+}

@@ -1,0 +1,45 @@
+{
+    "name": "The 5th East Africa Water Summit",
+    "short_name": "EAWATERS",
+    "start_url": "/en/",
+    "display": "standalone",
+    "background_color": "#0575E6",
+    "description": "East Africa's Premier Water and Sanitation Conference and Expo that brings together the leading Public and Private Sector Players for Discussions centered on Policy, Technology and Finance",
+    "categories": ["community", "solutions", "water","sanitation", "africa","eawaters","conference","events","Kenya","Uganda","Tanzania","Rwanda","Burundi","South Sudan","Somalia" ],
+    "icons": [{
+      "src": "/static/images/icons/icon128x128.png",
+        "sizes": "128x128",
+        "type": "image/png"
+      }, {
+        "src": "/static/images/icons/icon144x144.png",
+        "sizes": "144x144",
+        "type": "image/png"
+      }, {
+        "src": "/static/images/icons/icon152x152.png",
+        "sizes": "152x152",
+        "type": "image/png"
+      }, {
+        "src": "/static/images/icons/icon192x192.png",
+        "sizes": "192x192",
+        "type": "image/png"
+      }, {
+        "src": "/static/images/icons/icon256x256.png",
+        "sizes": "256x256",
+        "type": "image/png"
+      }, {
+        "src": "/static/images/icons/icon512x512.png",
+        "sizes": "512x512",
+        "type": "image/png"
+      }],
+    "theme_color": "#0575E6",
+    "scope_url": "https://www.eawaters.com/en/",
+    "intent_filters": {
+      "scope_url_scheme": "https",
+      "scope_url_host": "eawaters.com",
+      "scope_url_path": "/en/"
+    },
+    "bound_webapk": {
+      "runtime_host": "org.chromium.chrome",
+      "runtime_host_application_name": "Chromium"
+    }
+  }

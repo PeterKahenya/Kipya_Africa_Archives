@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% load cms_tags static sekizai_tags %}
+
+
+
+{% block content %}
+
+<style>
+	img{
+		padding:0 !important;
+		border:none !important;
+		border-radius:0 !important;
+	}
+</style>
+
+<link rel="stylesheet" type="text/css" href="{% static 'css/page_type_two.css' %}">
+<div class="mainContainer">
+	  <div class="topHeaderNav shadow">
+        {% include 'nav.html' %}
+    </div>
+    <div class="mainContent">
+        <div class="mainContentHeader">
+
+            <div class="row" style="height: 70% !important;background:#eee !important;">
+                <div class="col-sm-12 col-lg-6 p-0">
+                    {% placeholder "sponsor-header-left" %}
+                </div>
+                <div class="col-sm-12 col-lg-6 d-flex justify-content-center align-items-center">
+                    {% include 'sponsor_form.html' %}
+                </div>
+            </div>
+
+
+
+        </div>
+        <div class="container mainContentBody">
+            {% placeholder "sponsor-main-content-body" %}
+        </div>
+	</div>
+</div>
+
+{% endblock %}

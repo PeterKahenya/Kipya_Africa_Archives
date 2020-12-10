@@ -1,0 +1,43 @@
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/menu.css' %}">
+<div class="page-section-header-layer page-section-header-menu-faze">
+    <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3 col-xl-3"></div>
+</div>
+<div class="page-section-header-layer page-section-header-menu">
+    <div class="navigation">
+        <div class="material-icons navbar-menu-icon" onclick="hideMenu()">close</div>
+        <a href="/" class="navbar-logo">
+            <img src="{% static 'images/kipya_logo_white_transparent_background.png' %}" alt="">
+        </a>
+        <div class="navbar-menus kipya-menus">
+        <a href="/who-we-are" class="navbar-menus-item">About</a>
+        <a href="/our-brands" class="navbar-menus-item">Brands</a>
+        <a href="/our-industries" class="navbar-menus-item">Industries</a>
+        <a href="/contact" class="navbar-menus-item">Contact</a>
+        </div>
+        <div class="material-icons navbar-search-icon kipya-menu-search-icon">
+        search
+        </div>
+    </div>
+    
+    <div class="menu-content">
+        <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3 col-xl-3 d-flex flex-column justify-content-around ">
+            <a href="/who-we-are" class="kipya-menu-item">About</a>
+            <a href="/our-brands" class="kipya-menu-item">Brands</a>
+            <a href="/our-industries" class="kipya-menu-item">Industries</a>
+            <a href="/contact" class="kipya-menu-item">Contact</a>
+        </div>
+    </div>
+</div>
+<script>
+function showMenu(){
+  $('.page-section-header-menu').fadeIn()
+  $('.page-section-header-menu-faze').fadeIn()
+  $('.page-section-header-menu').css('display','flex')
+
+}
+function hideMenu(){
+  $('.page-section-header-menu').fadeOut()
+  $('.page-section-header-menu-faze').fadeOut()
+}
+</script>

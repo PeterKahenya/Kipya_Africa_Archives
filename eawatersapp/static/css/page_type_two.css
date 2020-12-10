@@ -1,0 +1,38 @@
+.mainContainer{
+	display: flex;
+	flex-direction: column;
+}
+
+.mainContent{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	margin-top: 0px;
+}
+
+.col-lg-6{
+	padding: 0 !important;
+	margin: 0 !important;
+}
+
+.eventCard{
+	padding: 30px;
+	width: 70%;
+	/*height: 250px;*/
+	border: 1px solid #dddddd;
+	background: #fcfcfc;
+	box-shadow: 5px 5px 15px #dddddd;
+	border-radius: 10px;
+	margin: 10px 10px;
+}
+
+.topHeaderNav{
+    background: linear-gradient(to right,#03b63f,#0070f0);
+    height: 10vh;
+    padding: 0px 0px;
+}
+.topHeaderNav>header{
+    background-color: #0000001e;
+    background-color: transparent;
+    height: 10vh;
+}

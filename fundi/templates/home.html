@@ -1,0 +1,75 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer Page</title>
+    <link href="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
+</head>
+<body>
+
+    <video muted autoplay playsinline id="my_feed"></video>
+    <audio autoplay id="fundi_audio"></audio>
+
+    <textarea disabled name="" id="some_data" cols="30" rows="10"></textarea>
+    <button id="sendDataBtn" disabled="disabled" onclick="sendData()">Send</button>
+    
+
+    <input type="hidden" value="{{peer_id}}" id="peer_id">
+    <input type="hidden" value="{{other_peer_id}}" id="other_peer_id">
+    <button onclick="startCall()">Call</button>
+
+<script src="{% static 'js/jquery-3.5.1.min.js' %}"></script>
+<script src="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js"></script>
+
+<script src="{% static 'js/peerjs.min.js' %}"></script>
+<script>
+    var peer_id=$('#peer_id').val()
+    var other_peer_id=$('#other_peer_id').val()
+
+
+    const peer = new Peer(peer_id,{
+      host: 'localhost',
+      port: 9000,
+      path: '/'
+    });
+
+    var conn = peer.connect(other_peer_id);
+    conn.on('open', function(){
+        document.getElementById("sendDataBtn").disabled=false
+        document.getElementById("some_data").disabled=false
+    });
+    conn.on('data',function(data){
+        $('#some_data').val($('#some_data').val()+data)
+    })
+
+    function sendData(){
+        conn.send($('#some_data').val());
+    }
+
+    
+
+    function startCall() {
+        var getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia;
+        getUserMedia({video: true, audio: true}, function(stream) {
+            document.getElementById("my_feed").srcObject=stream
+            var call = peer.call(other_peer_id, stream);
+            call.on('stream', function(remoteStream) {
+                document.getElementById("fundi_audio").srcObject=remoteStream
+            });
+            }, function(err) {
+            console.log('Failed to get local stream' ,err);
+            });
+        
+    }
+    
+
+
+
+
+</script>
+</body>
+</html>

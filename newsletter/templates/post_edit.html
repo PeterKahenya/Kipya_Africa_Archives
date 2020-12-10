@@ -1,0 +1,49 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js"></script>
+
+<link rel="stylesheet" href="{% static 'css/summernote-bs4.css' %}">
+<script src="{% static 'js/summernote-bs4.js' %}" charset="utf-8"></script>
+</head>
+<body>
+
+  <div class="d-flex justify-content-center align-items-center">
+    <form method="post">{% csrf_token %}
+      {{ form.as_p }}
+      <input type="submit" value="Update">
+  </form>
+  </div>
+  
+</body>
+</html>
+
+
+<textarea name="content" style="text-align:left!important;border: none!important;" id="summernote"></textarea><br>
+<div class="d-flex align-items-center justify-content-center  m-2">
+  <button id="post_save_btn" class="m-2 btn btn-success shadow-lg">Save</button>
+  <span class="btn btn-warning shadow-lg" onclick="location.reload()">Cancel</span>
+</div>
+
+<script>
+        $('#summernote').summernote('code',"<h1>Hello</h1>",{
+          focus:true,
+          height:150
+        });
+        function edit(post_number,content) {
+          $("#summernote"+post_number).summernote('code',content)
+          $("#post_"+post_number).hide()
+          $("#post_"+post_number+"_edit_form").show()
+        }
+</script>

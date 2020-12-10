@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+<style>
+    body{
+    background:#fff;
+    }
+</style>
+<div style="height:100%" class="d-flex flex-column align-items-center justify-content-flex-start">
+    <div class="col-xs-11 col-sm-11 col-md-6 col-lg-4 col-xl-4 text-center" style="height:50%">
+        <img
+            src="{% static 'images/smartmeter_icon.png' %}"
+            style="width:70%;height:100%"
+            alt="">
+    </div>
+    <br>
+    <div class="col-xs-11 col-sm-11 col-md-6 col-lg-4 col-xl-4 ">
+        <a style="width:100%" href="/accounts/login" class="btn btn-lg btn-outline-primary">LOGIN</a>
+        <br>
+        <br>
+        <a style="width:100%" href="/accounts/signup" class="btn btn-lg btn-primary">Add Borehole</a>
+    </div>
+</div>
+{% endblock %}

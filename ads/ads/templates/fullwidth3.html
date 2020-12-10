@@ -1,0 +1,605 @@
+{% extends "base.html" %}
+{% load cms_tags static %}
+
+{% block title %}{% page_attribute "page_title" %}{% endblock title %}
+
+{% block content %}
+<style>
+	.img-fluid{
+		width:100%;
+		height:90vh;
+
+		}
+</style>
+<div class="row shadow-lg">
+    <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 col-xl-8 p-0 d-flex flex-column justify-content-center align-items-center"
+         style="height:100%">
+        <div class="card text-white d-flex flex-column justify-content-center align-items-center"
+             style="border-radius:0px!important;height:100% !important;margin:0!important;padding:0px!important;border:0!important">
+            {% placeholder "image" %}
+            <div class="card-img-overlay d-flex flex-column justify-content-center align-items-center"
+                 style="background:#00000080">
+                <div style="width:100%;position:relative;z-index:2;">
+                    {% placeholder "main text" %}
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 col-xl-4 d-flex flex-column justify-content-center align-items-center"
+         style="background:linear-gradient(to right,rgb(0, 66, 166),rgb(22, 166, 70))">
+        {% placeholder "form" or %}
+        
+        {% endplaceholder %}
+
+    </div>
+</div>
+<div>
+
+    <div class="row section d-flex justify-content-center align-items-center pt-4 pb-4"
+         style="background:linear-gradient(to right,#eee,#eee);width:100%!important"
+    >
+
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6 col-xl-6 text-center">
+            {% placeholder "section one text" or %}
+            <h2 style="color:linear-gradient(red,blue)">Are you looking for a Construction & Industrial Experts?</h2>
+            {% endplaceholder %}
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-2 col-xl-2 text-center" style="width:100%!important">
+            {% placeholder "section one button" or %}
+            <button class="btn btn-secondary">Request a Quote</button>
+            {% endplaceholder %}
+        </div>
+    </div>
+
+    <div class="section d-flex justify-content-center align-items-center p-6" style="min-height:60vh">
+        <div class="row m-6" style="width:70%">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6 col-xl-6">
+                {% placeholder "section two text" or %}
+                <h2 style="color:linear-gradient(red,blue)">
+                    Are you looking for a Construction & Industrial Experts?
+                </h2>
+                {% endplaceholder %}
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 d-flex flex-wrap" style="width:100%!important">
+                <div class="card m-1 text-white"
+                     style="width:150px!important;height:150px!important;border-radius:20px!important">
+                    {% placeholder "section two card one image" or %}
+                    <img style="border-radius:15px!important" height="150px" width="150px"
+                         src="{% static 'images/julia.jpeg' %}" alt="">
+                    {% endplaceholder %}
+                    <div class="card-img-overlay">
+                        {% placeholder "section two card one text" or %}
+                        <p>Hello World</p>
+                        {% endplaceholder %}
+                    </div>
+                </div>
+                <div class="card m-1 text-white"
+                     style="width:150px!important;height:150px!important;border-radius:15px!important">
+                    {% placeholder "section two card one image" or %}
+                    <img style="border-radius:15px!important" height="150px" width="150px"
+                         src="{% static 'images/julia.jpeg' %}" alt="">
+                    {% endplaceholder %}
+                    <div class="card-img-overlay">
+                        {% placeholder "section two card one text" or %}
+                        <p>Hello World</p>
+                        {% endplaceholder %}
+                    </div>
+                </div>
+                <div class="card m-1 text-white"
+                     style="width:150px!important;height:150px!important;border-radius:15px!important">
+                    {% placeholder "section two card one image" or %}
+                    <img class="rounded-top" style="border-radius:15px!important" height="150px" width="150px"
+                         src="{% static 'images/julia.jpeg' %}" alt="">
+                    {% endplaceholder %}
+                    <div class="card-img-overlay">
+                        {% placeholder "section two card one text" or %}
+                        <p>Hello World</p>
+                        {% endplaceholder %}
+                    </div>
+                </div>
+                <div class="card m-1 text-white"
+                     style="width:150px!important;height:150px!important;border-radius:20px">
+                    {% placeholder "section two card one image" or %}
+                    <img style="border-radius:15px!important" height="150px" width="150px"
+                         src="{% static 'images/julia.jpeg' %}" alt="">
+                    {% endplaceholder %}
+                    <div class="card-img-overlay">
+                        {% placeholder "section two card one text" or %}
+                        <p>Hello World</p>
+                        {% endplaceholder %}
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+    <div class="section row bg-success">
+        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 ">
+            {% placeholder "section three image" or %}
+                <img height="100%" width="100%" src="{% static 'images/some_image.jpg' %}" alt="">
+            {% endplaceholder %}
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 p-4 ">
+            {% placeholder "section three text" or %}
+                <p>Some Text</p>
+            {% endplaceholder %}
+        </div>
+    </div>
+    <div class="section d-flex flex-column align-items-center justify-content-center text-center p-6" style="width:100%">
+        <br>
+        {% placeholder "section four top-text" or %}
+            <h3>Some Text</h3>
+        {% endplaceholder %}
+        <div class="d-flex flex-wrap justify-content-center align-items-center" style="width:80%">
+            <div class="card border-primary text-dark m-3" style="min-width: 25rem;max-width: 25rem;">
+                <div class="card-body text-dark">
+                    {% placeholder "section four card-one-text" or %}
+                    <p>Some Text Edit Me!</p>
+                    {% endplaceholder %}
+                </div>
+            </div>
+            <div class="card border-primary text-dark m-3" style="min-width: 25rem;max-width: 25rem;">
+                <div class="card-body text-dark">
+                    {% placeholder "section four card-two-text" or %}
+                    <p>Some Text Edit Me!</p>
+                    {% endplaceholder %}
+                </div>
+            </div>
+            <div class="card border-primary text-dark m-3" style="min-width: 25rem;max-width: 25rem;">
+                <div class="card-body text-dark">
+                    {% placeholder "section four card-three-text" or %}
+                    <p>Some Text Edit Me!</p>
+                    {% endplaceholder %}
+                </div>
+            </div>
+            <div class="card border-primary text-dark m-3" style="min-width: 25rem;max-width: 25rem;">
+                <div class="card-body text-dark">
+                    {% placeholder "section four card-four-text" or %}
+                    <p>Some Text Edit Me!</p>
+                    {% endplaceholder %}
+                </div>
+            </div>
+            <div class="card border-primary text-dark m-3" style="min-width: 25rem;max-width: 25rem;">
+                <div class="card-body text-dark">
+                    {% placeholder "section four card-five-text" or %}
+                    <p>Some Text Edit Me!</p>
+                    {% endplaceholder %}
+                </div>
+            </div>
+            <div class="card border-primary text-dark m-3" style="min-width: 25rem;max-width: 25rem;">
+                <div class="card-body text-dark">
+                    {% placeholder "section four card-six-text" or %}
+                    <p>Some Text Edit Me!</p>
+                    {% endplaceholder %}
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</div>
+<div class="section p-1 d-flex justify-content-center" style="background:#eee">
+    <div class="row" style="width:60%">
+        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-4 col-xl-4 p-4 ">
+            {% placeholder "section five text" or %}
+                <p>Some Text</p>
+            {% endplaceholder %}
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 ">
+            {% placeholder "section five image" or %}
+                <img style="border-radius: 10px" height="100%" width="100%" src="{% static 'images/some_image.jpg' %}" alt="">
+            {% endplaceholder %}
+        </div>
+    </div>
+</div>
+<div class="section p-1 d-flex justify-content-center">
+    <div class="row" style="width:70%">
+        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 ">
+            {% placeholder "section six image" or %}
+                <img style="border-radius: 10px" height="100%" width="100%" src="{% static 'images/some_image.jpg' %}" alt="">
+            {% endplaceholder %}
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-4 col-xl-4 p-4 ">
+            {% placeholder "section six text" or %}
+                <p>Some Text</p>
+            {% endplaceholder %}
+        </div>
+    </div>
+</div>
+<div class="section text-center text-white" >
+    <div style="height: 20vh!important;background: linear-gradient(to right,#00b050,#00b0f0);padding: 10px">
+        {% placeholder "section seven" or %}
+                <p>Some Text</p>
+        {% endplaceholder %}
+    </div>
+</div>
+<div class="section d-flex justify-content-center" style="height: 30vh!important">
+    <div class="row " style="width: 70%">
+        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 ">
+            {% placeholder "section eight image" or %}
+                <img style="border-radius: 10px" height="100%" width="100%" src="{% static 'images/some_image.jpg' %}" alt="">
+            {% endplaceholder %}
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-4 col-xl-4 p-4 ">
+            {% placeholder "section eight text" or %}
+                <p>Some Text</p>
+            {% endplaceholder %}
+        </div>
+    </div>
+</div>
+<div class="section">
+
+
+</div>
+<div class="section">
+
+</div>
+</div>
+<div class="d-flex flex-row align-items-center justify-content-center flex-wrap">
+      <div class="d-flex flex-column align-items-center justify-content-center" style="padding: 30px;">
+        <img src="./assets/images/flags/kenyaflag.png" width="35px" height="35px" />
+        <!-- <div class="s_title text-wrap" style="width: 10rem;text-align: center;margin: 10px;"> 
+            Ministry of Water, Sanitation and Irrigation
+        </div> -->
+      </div>
+      <div class="d-flex flex-column align-items-center justify-content-center" style="padding: 30px;">
+      <img src="./assets/images/flags/ugandaflag.png" width="35px" height="35px" />        
+       <!-- <div class="s_title">Ministry of Water and Environment.</div> -->
+      </div>
+      <div class="d-flex flex-column align-items-center justify-content-center" style="padding: 30px;">
+        <img src="./assets/images/flags/tanzaniaflag.png" width="35px" height="35px" />     
+       <!-- <div class="s_title">Ministry of Water and Irrigation</div> -->
+      </div>
+      <div class="d-flex flex-column align-items-center justify-content-center" style="padding: 30px;">
+        <img src="./assets/images/flags/rwandaflag.png" width="35px" height="35px" />   
+       <!-- <div class="s_title">Ministry of Infrastructure</div> -->
+      </div>
+      <div class="d-flex flex-column align-items-center justify-content-center" style="padding: 30px;">
+        <img src="./assets/images/flags/burundiflag.png" width="35px" height="35px" />
+       <!--<div class="s_title text-wrap" style="width: 10rem;text-align: center;margin: 10px;">Ministry of Water, Environment, Irrigation, Land Management and Urban Planning</div>-->
+      </div>
+      <div class="d-flex flex-column  align-items-center justify-content-center" style="padding: 30px;">
+        <img src="./assets/images/flags/ssudanflag.png" width="35px" height="35px" />
+        <!-- <div class="s_title">Ministry of Irrigation and Water Resources</div> -->
+      </div>
+    </div>
+    <div style="padding: 0;margin: 0;">
+      <div class="container align-items-center">
+        <br>
+        <div>
+          <h4 style="font-family: 'Roboto', sans-serif;font-weight: 700;text-align: center;">
+            The 4<sup>th</sup> EAST AFRICA WATER SUMMIT 2019
+          </h4>
+          <br>
+          <h5 style="color: #00b0f0;text-align: center;">Theme</h5>
+          <br>
+          <h6 style="color: #00b0f0;font-weight: bold;text-align: center;">
+            “Sustainable Water and Sanitation in the Face of Climate Change”
+          </h6>
+          <hr>
+          <h3 class="text-center">Our Pillars</h3>
+          <div class="row align-items-center justify-content-center">
+
+
+            <div style="display: flex;flex-direction: column;margin: 10px;">
+              <h6 class="text-center" style="color: #00b0f0;">Policy</h6>
+              <div
+                style="display: flex;justify-content: center;flex-direction: column;align-self: center;align-self: center;background-image: url(./assets/images/polygray.svg);background-size: contain;background-repeat: no-repeat;width: 50px;height: 50px;">
+                <i class="fa fa-handshake-o" style="font-size:20px;color:#00b050;text-align: center;"></i>
+              </div>
+              <div>
+                <p class="text-wrap" style="width: 10rem;text-align: center;margin: 10px;">
+                  Participate in policy
+                  formualtion for the
+                  water sector</p>
+              </div>
+
+            </div>
+            <br>
+            <div style="display: flex;flex-direction: column;margin: 10px;border-left: 1px solid #ccc;">
+              <h6 style="color: #00b0f0;" class="text-center">Technology</h6>
+
+              <div
+                style="display: flex;justify-content: center;flex-direction: column;align-self: center;align-self: center;background-image: url(./assets/images/polygray.svg);background-size: contain;background-repeat: no-repeat;width: 50px;height: 50px;">
+                <i class="fa fa-eye" style="font-size:20px;color:#00b050;text-align: center;"></i>
+              </div>
+              <div>
+                <p class="text-wrap" style="width: 10rem;text-align: center;margin: 10px;">
+                  Showcase your Innovations</p>
+              </div>
+
+            </div>
+            <br>
+            <div style="display: flex;flex-direction: column;margin: 10px; border-left: 1px solid #cccc;">
+              <h6 style="color: #00b0f0;" class="text-center">Financing</h6>
+
+              <div
+                style="display: flex;justify-content: center;flex-direction: column;align-content: center;align-self: center;background-image: url(./assets/images/polygray.svg);background-size: contain;background-repeat: no-repeat;width: 50px;height: 50px;">
+                <i class="fa fa-money" style="font-size:20px;color:#00b050;text-align: center;"></i>
+              </div>
+              <div>
+                <p class="text-wrap" style="width: 15rem;text-align: center;margin: 10px;">Insights and Investment
+                  Opportunities</p>
+              </div>
+
+            </div>
+            <br>
+          </div>
+          <br>
+          <hr>
+          <blockquote class=" blockquote text-center">
+            <p class="lead" style="font-size: .9rem">
+              Access to clean water and sanitation services in parts of the East African region is a
+              challenge, especially with a rising population and urbanization. Global warming has caused
+              the global average temperature to rise 0.85<sup>0</sup>C higher than it was in the late
+              19th century causing weather patterns to changing and become more unpredictable by the day.
+              The East African countries are signatories of the Kyoto protocol and the Paris agreement, to
+              cut down on the generation of greenhouse gases by 143 million tonnes.
+              In respect to these agreements and recognition of the key issues, the East Africa Water Summit 2019
+              will
+              convene to create a forum for the water industry stakeholders to deliberate and arrive at
+              specific action points that will influence policy, technology application and investment on
+              sustainable water and sanitation.</p>
+            <footer class="blockquote-footer">eawaters.com</footer>
+          </blockquote>
+
+          <div style="display: flex;flex-direction: row;flex-wrap: wrap;justify-content: center;">
+
+            <div class="stat">
+              <span class="statmain">75%</span><br>
+              <span class="stattext">of earth is covered by water</span>
+            </div>
+            <div class="stat">
+              <span class="statmain">2.5%</span><br>
+              <span class="stattext">of earth's water is freshwater
+                <br>(mostly preserved in glaciers)</span>
+            </div>
+            <div class="stat">
+              <span class="statmain">80%</span><br>
+              <span class="stattext">of the water produced is lost </span>
+            </div>
+            <div class="stat">
+              <span class="statmain">85%</span><br>
+              <span class="stattext">of global wastewater is <br> discharged without treatment </span>
+            </div>
+            <div class="stat">
+              <span class="statmain">300 million</span><br>
+              <span class="stattext">population of East Africa</span>
+            </div>
+
+          </div>
+
+          <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12 col-xl-12">
+            <!-- Display the countdown timer in an element -->
+
+            <script>
+              // Set the date we're counting down to
+              var countDownDate = new Date("Nov 21, 2019 08:00:00").getTime();
+
+              // Update the count down every 1 second
+              var x = setInterval(function () {
+
+                // Get today's date and time
+                var now = new Date().getTime();
+
+                // Find the distance between now and the count down date
+                var distance = countDownDate - now;
+
+                // Time calculations for days, hours, minutes and seconds
+                var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+                // Display the result in the element with id="demo"
+                // document.getElementById("demo").innerHTML = '<div><span class="day">' + days +
+                //   " days </span><span class='hours'> " + hours + " hrs </span><span class='minutes'> " +
+                //   minutes + " mins </span><span class='seconds'>" + seconds + "s </span>" + '</div>';
+
+                // If the count down is finished, write some text
+                if (distance < 0) {
+                  clearInterval(x);
+                 // document.getElementById("demo").innerHTML = "TODAY";
+                }
+              }, 1000);
+            </script>
+          </div>
+        </div>
+        <hr>
+        <h4 class="text-center text-primary">Speakers</h4>
+        <div id="speakers" style="display: flex;flex-direction: row;flex-wrap: wrap">
+
+          <div class="speaker">
+            <h5 class="s_name">Willem Kriek</h5>
+            <p class="s_title">African Aqua Solutions</p>
+            <p class="s_theme">Climate Change: Challenges facing Water and Sanitation Management</p>
+          </div>
+          
+          <div class="speaker">
+            <h5 class="s_name">Daniel Paul</h5>
+            <p class="s_title">Kaeser Compressors</p>
+            <p class="s_theme">Climate Change Adaptation and Resilience</p>
+          </div>
+          
+          <div class="speaker">
+            <h5 class="s_name">Simon Thuo</h5>
+            <p class="s_title">Sanitation Expert</p>
+            <p class="s_theme">Climate Change: Challenges facing Water and Sanitation Management</p>
+          </div>
+          
+          <div class="speaker">
+            <h5 class="s_name">Robin Lloyd</h5>
+            <p class="s_title">UNHCR</p>
+            <p class="s_theme">Climate Change Adaptation and Resilience</p>
+          </div>
+
+
+          <div class="speaker">
+            <h5 class="s_name">Emmanuel Ngui</h5>
+            <p class="s_title"></p>
+            <p class="s_theme">Transboundary Water Management in the face of Climate Change</p>
+          </div>
+
+          <div class="speaker">
+            <h5 class="s_name">James Muriithi</h5>
+            <p class="s_title">ESRI East Africa</p>
+            <p class="s_theme">Effects of Climate Change on Wetlands conservation</p>
+          </div>
+
+          <div class="speaker">
+            <h5 class="s_name">Dr. Ramasamy Jayakumar</h5>
+            <p class="s_title">UNESCO</p>
+            <p class="s_theme">Effects of Climate Change on Groundwater Abstraction</p>
+          </div>
+
+          <div class="speaker">
+            <h5 class="s_name">Dr. MAS Waweru</h5>
+            <p class="s_title"></p>
+            <p class="s_theme">Waste-Water Management in Climate Change Adaptation</p>
+          </div>
+
+          <div class="speaker">
+            <h5 class="s_name"></h5>
+            <p class="s_title"></p>
+            <p class="s_theme">Effects of Climate Change on Water Quality</p>
+          </div>
+
+          <div class="speaker">
+            <h5 class="s_name">Nakuru Water - Zaituni</h5>
+            <p class="s_title"></p>
+            <p class="s_theme">Faecal Sludge Management in Climate Change Adaptation</p>
+          </div>
+          
+          <div class="speaker">
+            <h5 class="s_name">Nakuru Water - Zaituni</h5>
+            <p class="s_title"></p>
+            <p class="s_theme">Faecal Sludge Management in Climate Change Adaptation</p>
+          </div>
+          
+          <div class="speaker">
+            <h5 class="s_name">Ebenezer Amadi</h5>
+            <p class="s_title">Doshi - GF</p>
+            <p class="s_theme">Financial Risks and Opportunities in Climate Change Adaptation for the Water Sector</p>
+          </div>
+          
+          <div class="speaker">
+            <h5 class="s_name">Untapped</h5>
+            <p class="s_title">Maxime Servettaz</p>
+            <p class="s_theme">Mobilizing Finance for Climate-Resilient Water Sector Infrastructure</p>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <div style="display: flex;align-items: center;justify-content: center; width: 100%">
+      <a href="./assets/program.pdf" class="secondary_btn">Download Program</a>
+    </div>
+    <br>
+   <!-- <h3 class="text-center">Free Transport </h3>
+    <h3 class="text-center">KICC Transport </h3> -->
+  <footer class="bg-white" style="padding: 40px;border-top: 1px solid #aaaaaa">
+    <div class="bg-white container justify-content-center align-items-center">
+        <h5 class="text-center">Endorsed by</h5><br>
+
+        <div class="justify-content-center align-items-center d-flex flex-wrap">
+            <div class="endorser shadow">
+                <img src="./assets/images/logos/logo26.png" class="justify-content-center" width="150px" height="150px"
+                    alt="">
+            </div>
+            <div class="endorser shadow">
+                <img src="./assets/images/logos/logo2.jpg" class="justify-content-center" width="140px" height="150px"
+                    alt="">
+            </div>
+            <!-- <div class="endorser  shadow">
+                <img src="./assets/images/logos/logo31.png" class="justify-content-center" width="150px" height="150px"
+                    alt="">
+            </div> -->
+            <div class="endorser  shadow">
+                <img src="./assets/images/logos/logo22.jpg" class="justify-content-center" width="150px" height="150px"
+                    alt="">
+            </div>
+
+            <div class="endorser shadow">
+                <img src="./assets/images/logos/logo14.png" class="justify-content-center" width="150px" height="150px"
+                    alt="">
+            </div>
+            <br>
+            <br>
+            <div class="endorser shadow">
+                <img src="./assets/images/logos/logo29.png" class="justify-content-center" width="400px" height="100px"
+                    alt="">
+            </div>
+
+        </div>
+        <br>
+        <hr>
+        <h5 class="text-center">Our Partners</h5>
+        <div class="d-flex align-items-center justify-content-center flex-wrap ">
+            <div class="partner card shadow-sm">
+                <img class="partner_logo" width="200px" height="80px;" src="./assets/images/logos/doshiwater.jpg"
+                    alt="">
+            </div>
+             <div class="partner card shadow-sm">
+                <img class="partner_logo" width="200px" height="80px;" src="./assets/images/logos/aas.png"
+                    alt="">
+            </div>
+           <!-- <div class="partner card shadow-sm">
+                <img class="partner_logo" width="140px" height="80px;" src="./assets/images/logos/wilo_logo.png" alt="">
+
+            </div> -->
+            <div class="partner card shadow-sm">
+                <img class="partner_logo" width="200px" height="80px;" src="./assets/images/logos/logo_untapped.png"
+                    alt="">
+            </div>
+            <div class="partner card shadow-sm">
+                <img class="partner_logo" width="200px" height="80px;" src="./assets/images/logos/dns.png" alt="">
+            </div>
+            <div class="partner card shadow-sm">
+                <img class="partner_logo" width="200px" height="80px;"  src="./assets/images/logos/kaeser.png" alt="">
+            </div>
+            
+            <div class="partner card shadow-sm">
+                <img class="partner_logo" width="200px" height="80px;" src="./assets/images/logos/watershed.jpg"
+                    alt="">
+            </div>
+
+        </div>
+        <br>
+        <hr>
+        <h5 class="text-center">Summit Organised by</h5>
+            <div class="container justify-content-center d-flex"> 
+                <div class="partner card shadow-sm">
+                    <img width="200px" src="assets/images/logos/logo19.gif"
+                        alt="">
+                 </div>
+        </div>
+        <br>
+    </div>
+    <br>
+
+    <hr>
+    <br>
+    <div class="container">
+        <div class="d-flex flex-row align-items-center justify-content-center">
+            <div class="col-12">
+                <p class="text-center">&copy; 2019 Kipya Africa Ltd.</p>
+                <hr>
+                <p class="text-center" style="font-weight: bold">Contact Us</p>
+                <p class="text-center">Kipya (Africa) Limited</p>
+                <p class="text-center">Lenana/ Galana Road,Kilimani</p>
+                <p class="text-center">P.O.Box 7407-00100, Nairobi, Kenya</p>
+                <p class="text-center">Tel: +254-728-615-438</p>
+                <p class="text-center">Email: info@eawaters.com</p>
+            </div>
+        </div>
+
+    </div>
+
+
+</footer>  <input type="hidden" id="ispaid" value="NO">
+
+{% endblock content %}
+  

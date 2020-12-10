@@ -1,0 +1,36 @@
+@font-face {
+    font-family: PlayFairRegular;
+    src: url('../fonts/playfair/PlayfairDisplay-Regular.otf');
+}
+@font-face {
+    font-family: PlayFairBold;
+    src: url('../fonts/playfair/PlayfairDisplay-Bold.otf');
+}
+html,
+body{
+    background-color: rgb(246, 246, 246);
+    height: 100vh;
+    font-family: PlayFairRegular;
+    margin: 0;
+    padding: 0;
+}
+
+.ktts_subbrand{
+    font-family: PlayFairRegular;
+    font-size: 2.2rem;
+}
+
+
+.navbar-brand{
+    width: 150px;
+}
+.ktts_logo{
+    width: 150px;
+}
+
+.course_card{
+}
+
+.course_title{
+
+}

@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% load cms_tags static sekizai_tags %}
+
+{% block content %}
+<link rel="stylesheet" href="{% static 'css/home.css' %}">
+
+<div class="topHeader shadow-lg">
+    <div class="topHeaderNav">
+        {% include 'nav.html' %}
+    </div>
+    <div class="topHeaderContent">
+        <div class="topHeaderContentLeft">
+            <div style="width: 100%;height: 100%;padding: 20px;display: flex;align-items: center;justify-content: center;flex-direction: column;">
+                {% placeholder "topHeaderContentLeft" %}
+            </div>
+        </div>
+        <div class="topHeaderContentRight">
+            {% include 'delegate_form.html' %}
+        </div>
+
+    </div>
+</div>
+<div class="content-section">
+    {% placeholder "content-section" %}
+</div>
+
+{% endblock %}

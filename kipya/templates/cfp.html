@@ -1,0 +1,125 @@
+{% load cms_tags static %}
+<style>
+    .callForPapersForm{
+        background-color: rgb(255, 254, 245);
+        width: 100vw;
+        padding: 10px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-top: 0.5px solid #ddd;
+        border-bottom: 0.5px solid #ddd;
+    }
+    .cfpForm{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100vw;
+        margin: 10px;
+        padding: 5px;
+        background-color: white;
+        border: 0.3px solid #f3f3f3;
+        border-radius: 10px;
+    }
+    .cfp_text_input{
+        margin: 10px 0px;
+        min-height: 30px;
+        border: 0.5px solid #ddd;
+        padding: 5px;
+        width: 90%;
+        border-radius: 5px;
+    }
+    .cfp_select_input{
+        margin: 10px 0px;
+        min-height: 30px;
+        border: 0.5px solid #ddd;
+        padding: 5px;
+        width: 90%;
+        border-radius: 5px;
+    }
+    .cfpb_paragraph_input{
+        margin: 10px 0px;
+        min-height: 30px;
+        border: 0.5px solid #ddd;
+        padding: 5px;
+        width: 90%;
+        border-radius: 5px;
+    }
+    @media screen and (min-width:800px){
+        .cfpForm{
+            width: 40vw;
+        }
+    }
+</style>
+{% if request.GET.success %}
+    <div class="alert alert-success">Thank You for Submiting Your Idea. We will get back to you shortly</div>
+
+{% else %}
+    <div class="cfpForm shadow">
+        <h3 class="text-muted mt-3 mb-3">Describe Your Idea</h3>
+        {% csrf_token %}
+        <input type="text" name="first_name" id="first_name" placeholder="First Name" class="cfp_text_input">
+        <input type="text" name="last_name" id="last_name" placeholder="Last Name" class="cfp_text_input">
+        <input type="email" name="email" id="cfpemail" placeholder="Email Address" class="cfp_text_input">
+        <select name="industry" class="cfp_select_input" id="industry">
+            <option value="Mining" selected>Mining</option>
+            <option value="Energy">Energy</option>
+            <option value="Other">Other</option>
+        </select>
+        <Label>Your Idea (Maximum 700 words)</Label>
+        <textarea name="idea" id="idea" cols="30" rows="50" class="cfpb_paragraph_input" placeholder="Your Idea (Maximum 700 words)"></textarea>
+        <button class="btn btn-success m-3" onclick="submit()">Submit</button>
+    </div>
+{% endif %}
+
+<script>
+    function stripHtml(html)
+        {
+            var tmp = document.createElement("DIV");
+            tmp.innerHTML = html;
+            return tmp.textContent || tmp.innerText || "";
+        }
+
+    async function submit() {
+        var first_name=$("#first_name").val()
+        var last_name=$("#last_name").val()
+        var email=$("#cfpemail").val()
+        var industry=$("#industry").val()
+        var idea=$("#idea").val()
+
+        if (first_name===""||last_name===""||email===""||industry===""||idea==="") {
+            alert("Please fill all the fields")
+            return false;
+        }
+
+        console.log({
+                first_name:stripHtml(first_name),
+                last_name:stripHtml(last_name),
+                email:stripHtml(email),
+                industry:stripHtml(industry),
+                idea:stripHtml(idea),
+            })
+
+        response=await axios({
+            method:"POST",
+            url:"https://www.kipya-africa.com/en/me2icfps",
+            headers:{ "X-CSRFToken": $("input[name='csrfmiddlewaretoken']").val() },
+            data:{
+                first_name:stripHtml(first_name),
+                last_name:stripHtml(last_name),
+                email:stripHtml(email),
+                industry:stripHtml(industry),
+                idea:stripHtml(idea),
+            }
+        })
+        console.log(response)
+        if (response.data.success) {
+            window.location.replace("/me2i?success=yes")
+        } else {
+            
+        }
+
+    }
+
+
+</script>

@@ -1,0 +1,182 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap');
+
+html,
+body {
+    padding: 0;
+    margin: 0;
+    background-image: linear-gradient(#cacaca00, #dddddd40),
+        url('../images/bgwater.png'),
+        linear-gradient(#ffffff, #ffffff);
+    font-family: 'Roboto', sans-serif;
+}
+
+
+.nav-item {
+    margin: 10px;
+}
+
+.active a {
+    border-bottom: 1px dotted #049b3e;
+}
+
+
+.stat {
+    margin: 10px;
+    border: .4px dotted #a1a1a1;
+    padding: 10px;
+}
+
+.statmain {
+    color: #fcca0a;
+    font-weight: bold;
+    font-size: 3rem;
+}
+
+.stattext {
+    font-size: .6rem;
+    color: darkgray;
+}
+
+.speaker {
+    margin: 5px;
+    padding: 10px;
+    width: 300px;
+    height: 350px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    border: 0.2px solid #efefef;
+    border-radius: 5px;
+    /* box-shadow: 2px 2px 5px #ddd; */
+
+}
+
+.s_name {
+    font-size: 1rem;
+    font-weight: bold;
+    text-align: center;
+    color: darkgray;
+}
+
+.s_title {
+    font-style: normal;
+    font-size: 0.8rem;
+    color: #049b3e;
+    text-align: center;
+    overflow-wrap: break-word;
+}
+
+.s_theme {
+    font-style: italic;
+    font-size: .8rem;
+    color: #fcca0a;
+    text-align: center;
+
+}
+
+.s_profile{
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  border: 0.1px solid #ddd;
+}
+
+.partner,
+.endorser {
+    margin: 10px;
+    padding: 10px;
+    background-color: white;
+}
+
+.timer {
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+}
+
+#demo {
+    width: 100%;
+    display: flex;
+}
+
+.day,
+.hours,
+.minutes,
+.seconds {
+    padding: 5px;
+    background-color: #5e5d5df0;
+    color: #e6e6e6;
+    border: .5px solid gray;
+    font-size: 1.2rem;
+}
+
+/* Hide all steps by default: */
+.tab {
+    display: none;
+  }
+
+/* Make circles that indicate the steps of the form: */
+.step {
+    height: 15px;
+    width: 15px;
+    margin: 0 2px;
+    background-color: #fcca0a;
+    border: none;
+    border-radius: 50%;
+    display: inline-block;
+    opacity: 0.5;
+  }
+
+  /* Mark the active step: */
+  .step.active {
+    opacity: 1;
+  }
+
+  /* Mark the steps that are finished and valid: */
+  .step.finish {
+    background-color: #4CAF50;
+  }
+
+
+  /* Mark input boxes that gets an error.primary_btn {
+    background-color: #00b050;
+    color: white !important;
+    padding: 10px 15px !important;
+    text-decoration: none;
+}
+
+.secondary_btn {
+    color: #00b050;
+    border: 1px solid #00b050;
+    padding: 10px 15px !important;
+    text-decoration: none;
+    background-color: rgba(0, 0, 0, 0.623);
+}
+}
+.header-banner{
+    min-height: 40% ;
+} */
+
+.primary_btn {
+    background-color: #00b050;
+    color: white !important;
+    padding: 10px 15px !important;
+    text-decoration: none;
+}
+
+.secondary_btn {
+    color: #000000;
+    border: 1px solid #000000;
+    padding: 10px 15px !important;
+    text-decoration: none;
+    background-color: #fcca0a;
+}
+
+.my_input {
+    width: 100%;
+    margin: 0.5vh !important;
+}
+input.invalid {
+    border-color: red;
+}

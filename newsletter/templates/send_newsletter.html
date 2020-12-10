@@ -1,0 +1,101 @@
+{% extends 'protected_base.html' %}
+
+{% block content %}
+
+        <br>
+        <br>
+        <hr>
+        <h4 class="text-center text-muted"><strong>{{newsletter.newsletter_name}}</strong></h4>
+        <br>
+        <br>
+            <div class="alert alert-success" style="display: none;" id="test_email_success_message" role="alert">
+                Test Email Sent!
+            </div>
+        <button class="btn btn-primary ml-2" id="test_email_btn">Send Test Email</button>
+        <br>
+        <br>
+        <div id="test_email_form" class="col-6 border-success">
+          <form action="" method="post" class="mt-6">
+            <h4>Send Test Email</h4>
+            {% csrf_token %}
+            <input type="email" placeholder="Enter Test Address..." class="form-control" name="test_address" id="test_address">
+            <br>
+            <button class="btn btn-small btn-primary" onclick="sendTest()" type="button">Send</button>
+            <span class="btn btn-info" onclick="location.reload()">Cancel</span>
+          </form>
+          <br>
+          <br>
+        </div>
+
+        <hr>
+        <div class="d-flex flex-column mt-6 justify-content-center align-items-center">
+          {% if queued %}
+          <div class="alert alert-success" role="alert">
+              Newsletter Sending Started!
+          </div>
+          {% endif %}
+            <div class="card p-4 col-6 d-flex flex-column">
+              <h1 class="h2 text-center">Send Newsletter</h1>
+              <a href="./" class="btn btn-lg btn-outline-success">Preview Newsletter</a>
+              <br>
+              <form action="" method="post">
+                {% csrf_token %}
+                <button class="btn btn-lg btn-warning" style="width: 100%;" type="submit">SEND NEWSLETTER</button>
+              </form>
+          </div>
+        </div>
+        <hr>
+        <div class="d-flex flex-column justify-content-center">
+          <h2 class="text-center mt-3 mb-3">List of Recipients</h2>
+          <table class="table">
+            <thead class="thead-dark">
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Name</th>
+                <th scope="col">Email</th>
+                <th scope="col">Subscribed?</th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for sub in subscribers %}
+              <tr>
+                <th scope="row">{{forloop.counter}}</th>
+                <td>{{sub.fullname}}</td>
+                <td>{{sub.email}}</td>
+                <td>{{sub.is_subscribed}}</td>
+              </tr>
+
+              {% endfor %}
+            </tbody>
+          </table>
+        </div>
+      <hr>  
+
+        
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+<script>
+  $("#test_email_form").hide()
+  $("#test_email_btn").click(()=>{
+    $("#test_email_form").show()
+    $("#test_email_btn").hide()
+
+  })
+  function sendTest() {
+    axios.post('./test', {
+    test_address: $('#test_address').val(),
+  })
+  .then(function (response) {
+    if (response.data.TEST_SENT) {
+      $('#test_email_success_message').show()
+    $("#test_email_form").hide()
+
+    }
+  })
+  .catch(function (error) {
+    console.log("Error Ocuured",error);
+  });
+  }
+</script>
+{% endblock content %}

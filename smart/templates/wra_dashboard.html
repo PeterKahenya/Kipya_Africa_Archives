@@ -1,0 +1,132 @@
+{% extends "base.html" %} {% load static %} {% block content %}
+
+<script
+  type="text/javascript"
+  src="https://www.gstatic.com/charts/loader.js"
+></script>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<nav class="navbar navbar-expand-lg navbar-light bg-primary text-white shadow-sm">
+  <a class="navbar-brand text-white" href="#">Smart Meter</a>
+  <button class="navbar-toggler text-white" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon text-white"></span>
+  </button>
+
+  <div class="collapse navbar-collapse " id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+    </ul>
+
+    <div class="nav-item dropdown">
+      <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        {{request.user.first_name}} {{request.user.last_name}} 
+      </a>
+      <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+        <a class="dropdown-item" href="/accounts/logout">Logout</a>
+      </div>
+    </div>
+  </div>
+</nav>
+<div
+  style="height:100%"
+  class="container-fluid"
+>
+<br>
+<div class="row">
+  <div class="col-sm-12 col-lg-6">
+    <h4 class="text-center">Smart Meter Rate Readings</h4>
+    
+    <div class="card p-2" id="chart_rate" style="width:100%; height: 500px"></div>
+    <br>
+    <br>
+  </div>
+    
+  <div class="col-sm-12 col-lg-6">
+    <h4 class="text-center">Total Meter Consumption</h4>
+    <div class="card p-2 shadow-sm" id="chart_total" style="width:100%; height: 500px"></div>
+  </div>
+</div>
+  <div class="container col-sm-11 col-lg-8">
+        <h4 class="text-center">Total Consumption</h4>
+
+    <div class="card">
+      <h3 id="total_consumption" class="text-center text-primary">KES. 750.33</h3>
+    </div>
+    <br>
+    <h4 class="text-center">Cost</h4>
+    <div class="card">
+      <h3 id="cost" class="text-center text-warning">KES. 750.33</h3>
+    </div>
+    <br>
+<!--    <a href="/paymentoptions" type="button" class="btn btn-warning btn-lg btn-block">Pay</a>-->
+
+  </div>
+  <br>
+</div>
+<script type="text/javascript">
+  async function fetch_readings() {
+    var meter_readings_rate = [];
+    var meter_readings_total = [];
+
+    return axios.get("http://127.0.0.1:8000/readings", {
+        params: {
+          meter_id: "fc559685-812a-4353-99d4-4105d13a9b0b"
+        }
+      })
+      .then(function(readings) {
+        meter_readings_rate.push(["Time", "Flow Rate"]);
+        meter_readings_total.push(["Time", "Flow Total"]);
+        var max=0
+        readings.data.map(reading => {
+          if(max<reading.total){
+            max=reading.total
+          }
+          meter_readings_rate.push([new Date(reading.time).toString(), reading.rate]);
+          meter_readings_total.push([new Date(reading.time).toString(), reading.total]);
+        });
+        $("#total_consumption").html(max)
+        $("#cost").html("KES. "+max/2)
+
+        return {meter_readings_rate,meter_readings_total};
+      })
+      .catch(function(error) {
+        console.log(error);
+      })
+      .then(function() {
+        return {meter_readings_rate,meter_readings_total};
+      });
+  }
+
+  google.charts.load("current", { packages: ["corechart"] });
+  google.charts.setOnLoadCallback(drawChart);
+
+  function drawChart() {
+    fetch_readings().then(raw_data => {
+      var data_rate = google.visualization.arrayToDataTable(raw_data.meter_readings_rate);
+      var data_total = google.visualization.arrayToDataTable(raw_data.meter_readings_total);
+
+
+      var options_rate = {
+        title: "Meter Rate Readings",
+        curveType: "function",
+        legend: { position: "bottom" }
+      };
+      var options_total = {
+        title: "Meter Total Readings",
+        curveType: "function",
+        legend: { position: "bottom" }
+      };
+
+      var chart_rate = new google.visualization.LineChart(
+        document.getElementById("chart_rate")
+      );
+
+      var chart_total = new google.visualization.LineChart(
+        document.getElementById("chart_total")
+      );
+
+      chart_rate.draw(data_rate, options_rate);
+      chart_total.draw(data_total, options_total);
+
+    });
+  }
+</script>
+{% endblock %}

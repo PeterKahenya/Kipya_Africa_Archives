@@ -1,0 +1,96 @@
+.delegateForm{
+    padding: 20px !important;
+    width: 100% !important;
+    display: flex !important;
+    flex-direction: column !important;
+    border-left: 6px solid rgb(16, 163, 72);
+    /* border-image: linear-gradient(#00b050,#00b0f0); */
+    border-radius: 5px;
+    /* box-shadow: 5px 5px 40px rgba(0, 51, 192, 0.486); */
+}
+
+.formStep{
+    display: none;
+    flex-direction: column;
+    align-items: stretch;
+
+    width: 100%;
+    /* height: 400px; */
+
+}
+
+#step1{
+    display: flex;
+}
+
+.packageDetails{
+    box-shadow: 1px 1px 5px #ddd;
+    background-color: #eee;
+    padding: 10px;
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+}
+
+.paymentMethod{
+    border-left: 1px solid #fcca0a;
+    padding: 10px 10px 30px 10px;
+    flex-grow: 1;
+}
+
+.packageTotal{
+    flex-grow: 1;
+}
+
+.eawaters_select_input{
+    max-width: 95%;
+    padding: 10px;
+    margin: 10px;
+    border-radius: 5px;
+    border: 0.5px solid #ddd;
+    outline: none;
+    text-align: center;
+    background-color: rgb(252, 252, 252);
+    color: rgb(97, 97, 97);
+    min-height: 45px;
+    margin: 10px 10px 10px 0px;
+
+}
+
+.radio_select{
+  max-width: 250px;
+  height: 60px;
+  border: 0.5px solid #eee;
+  border-radius: 5px;
+  padding: 5px;
+  margin: 5px;
+  background: #fefefe;
+  box-shadow: inset 0 0 1px rgba(0, 0, 0, .5);
+}
+
+label{
+  font-size: 10px;
+  font-weight: bold;
+}
+
+.eawaters_text_input{
+    margin: 10px;
+    padding: 10px;
+    outline: none;
+    text-align: center;
+    border-radius: 5px;
+    border: 0.5px solid #ddd;
+    color: rgb(124, 124, 124);
+    margin: 10px 10px 10px 0px;
+
+}
+option {
+    max-width: 250px;
+    overflow: hidden;
+  }
+@media screen and (min-width:800px){
+    .delegateForm{
+        width: 60% !important;
+    }
+
+}

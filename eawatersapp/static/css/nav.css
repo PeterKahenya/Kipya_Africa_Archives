@@ -1,0 +1,27 @@
+
+.menusBar{
+	display: none;
+	flex-direction: row;
+
+}
+
+.menusBarItem{
+	color: white;
+	margin: 0px 20px;
+
+}
+
+.menusBarItem:hover{
+	text-decoration: none;
+	color: white;
+}
+
+
+
+
+
+@media screen and (min-width: 800px){
+	.menusBar{
+		display: flex;
+	}
+}

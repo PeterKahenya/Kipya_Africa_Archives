@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% load cms_tags static sekizai_tags %}
+<title>Experience | The 5th East Africa Water Summit and Expo</title>
+
+{% block content %}
+<script src='https://meet.jit.si/external_api.js'></script>
+
+<link rel="stylesheet" type="text/css" href="{% static 'css/experience.css' %}">
+<div class="container">
+  <input type="hidden" name="sponsor_id" id="sponsor_id" value="{{sponsor_id}}">
+  <div class="" id="meet">
+
+  </div>
+</div>
+<script type="text/javascript">
+  const domain = 'meet.jit.si';
+  const options = {
+      roomName: $("#sponsor_id").val(),
+      width: 700,
+      height: 700,
+      parentNode: document.querySelector('#meet')
+  };
+  const api = new JitsiMeetExternalAPI(domain, options);
+
+</script>
+
+
+
+
+{% endblock %}

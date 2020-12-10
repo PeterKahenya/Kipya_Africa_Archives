@@ -1,0 +1,13 @@
+
+{% load static %}
+<div class="carousel-item {% if instance.is_active %} active {% endif %}">
+    <img src="{{instance.content_image.url}}" style="height:100%!important;width:100%!important;object-fit: cover!important;" class="slide-image d-block w-100" alt="...">
+    <div class="black-overlay"></div>
+    <div class="container">
+        <div 
+        class="carousel-caption text-center d-flex flex-column flex-wrap justify-content-center align-items-center text-wrap" 
+        style="max-width: 90%!important;height: 100%!important">            
+            {{instance.carousel_content}}
+        </div>
+    </div>
+</div>

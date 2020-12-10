@@ -1,0 +1,8 @@
+{% load cms_tags %}
+<div class="kipya-slide fade">
+    <div class="kipya-slide-holder">
+        {% for plugin in objects_list %}
+        {% render_plugin plugin %}
+        {% endfor %}
+    </div>
+</div>

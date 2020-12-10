@@ -1,0 +1,153 @@
+{% extends "base.html" %}
+{% load static cms_tags %}
+
+{% block title %}{% page_attribute "page_title" %}{% endblock title %}
+
+{% block content %}
+<link href="{% static 'assets/css/timeline.css' %}" rel="stylesheet">
+
+<style>
+    .jumbotron {
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+  margin-bottom: 0;
+  background-color: #fff;
+}
+@media (min-width: 768px) {
+  .jumbotron {
+    padding-top: 6rem;
+    padding-bottom: 2rem;
+  }
+}
+
+@media (max-width: 767px) {
+  .jumbotron {
+    margin-top: 5rem !important;
+  }
+}
+
+.jumbotron p:last-child {
+  margin-bottom: 0;
+}
+
+.jumbotron h1 {
+  font-weight: 300;
+}
+
+.jumbotron .container {
+
+}
+</style>
+<div class="jumbotron text-center my-5">
+    <div class="container">
+        {% placeholder "header" or %}
+        <h1>Album example</h1>
+        <p class="lead text-muted">
+            Something short and leading about the collection below—its contents, the creator, etc. Make it short and
+            sweet, but not too short so folks don’t simply skip over it entirely.</p>
+        <p>
+            <a href="#" class="btn btn-primary my-2">Main call to action</a>
+            <a href="#" class="btn btn-secondary my-2">Secondary action</a>
+        </p>
+        {% endplaceholder %}
+    </div>
+</div>
+
+<div class="album py-5 bg-light">
+<div class="container">
+    <div class="page-header">
+        <h1 id="timeline" class="text-center">Our Milestones</h1>
+    </div>
+    <ul class="timeline">
+        <li>
+          <div class="timeline-badge"></div>
+          <div class="timeline-panel">
+            <div class="timeline-heading">
+              <h4 class="timeline-title text-center ">2012</h4>
+            </div>
+            <div class="timeline-body">
+                {% placeholder "2012 Summary" %}
+            </div>
+          </div>
+        </li>
+        <li class="timeline-inverted">
+          <div class="timeline-badge"></div>
+          <div class="timeline-panel">
+            <div class="timeline-heading">
+              <h4 class="timeline-title text-center ">2013</h4>
+            </div>
+            <div class="timeline-body">
+                {% placeholder "2013 Summary" %}
+            </div>
+          </div>
+        </li>
+        <li>
+          <div class="timeline-badge"></div>
+          <div class="timeline-panel">
+            <div class="timeline-heading">
+              <h4 class="timeline-title  text-center ">2014</h4>
+            </div>
+            <div class="timeline-body">
+                {% placeholder "2014 Summary" %}
+            </div>
+          </div>
+        </li>
+        <li class="timeline-inverted">
+          <div class="timeline-badge"></div>
+          <div class="timeline-panel">
+            <div class="timeline-heading">
+              <h4 class="timeline-title text-center ">2015</h4>
+            </div>
+            <div class="timeline-body">
+                {% placeholder "2015 Summary" %}
+            </div>
+          </div>
+        </li>
+        <li>
+          <div class="timeline-badge"></div>
+          <div class="timeline-panel">
+            <div class="timeline-heading">
+              <h4 class="timeline-title text-center ">2016</h4>
+            </div>
+            <div class="timeline-body">
+                {% placeholder "2016 Summary" %}
+            </div>
+          </div>
+        </li>
+        <li class="timeline-inverted">
+          <div class="timeline-badge"></div>
+          <div class="timeline-panel">
+            <div class="timeline-heading">
+              <h4 class="timeline-title text-center ">2017</h4>
+            </div>
+            <div class="timeline-body">
+                {% placeholder "2017 Summary" %}
+            </div>
+          </div>
+        </li>
+        <li>
+          <div class="timeline-badge"></div>
+          <div class="timeline-panel">
+            <div class="timeline-heading">
+              <h4 class="timeline-title text-center ">2018</h4>
+            </div>
+            <div class="timeline-body">
+                {% placeholder "2018 Summary" %}
+            </div>
+          </div>
+        </li>
+        <li class="timeline-inverted">
+          <div class="timeline-badge"></div>
+          <div class="timeline-panel">
+            <div class="timeline-heading">
+              <h4 class="timeline-title text-center ">2019</h4>
+            </div>
+            <div class="timeline-body">
+                {% placeholder "2019 Summary" %}
+            </div>
+          </div>
+        </li>
+    </ul>
+</div>
+</div>
+{% endblock content %}

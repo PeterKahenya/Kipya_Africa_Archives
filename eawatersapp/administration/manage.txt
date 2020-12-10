@@ -1,0 +1,5 @@
+path "/manage"
+view for get to render table of delegates
+Add delegate, register on zoom and send email with link
+send email to all
+send email to individuals

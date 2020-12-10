@@ -1,0 +1,33 @@
+.section-header{
+    background: white;
+}
+.section-header *{
+    color: white;
+}
+.section-header hr{
+    height: 0.5px;
+    background-color: #ccc;
+    border: none;
+}
+
+.page-section-header-layer{
+    max-height: 80%;
+}
+.page-section-header-background-image{
+    z-index: 1;
+    overflow: hidden;
+}
+.page-section-header-background-image>a>img{
+    flex-shrink: 0;
+    min-width: 100%;
+    min-height: 100%;
+}
+.page-section-header-fade{
+    z-index: 2;
+    background-color: rgba(0,0,0,0.5); /* Black background with opacity */
+}
+.header-content{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

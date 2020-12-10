@@ -1,0 +1,145 @@
+html,body{
+    background-color: ghostwhite;
+    height: 100vmax;
+    width: 100vw;
+    color: black;
+}
+
+.module_list_item{
+    border-radius: 3px;
+    display: flex;
+    padding: 3vh;
+    align-items: center;
+    color: black;
+    font-weight: bold;
+}
+
+.module_list_item:hover{
+    text-decoration: none;
+    color: black;
+}
+
+.module_no{
+    background-color: gainsboro;
+    height: 3vw;
+    width: 3vw;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.active-module{
+    /* background-color: gainsboro; */
+}
+.active-module .module_no{
+    background-color: #fcca0a;
+    color: black;
+
+}
+
+.main-container{
+    display: flex;
+    height: 100vmax;
+}
+.content{
+    display: flex;
+    flex-direction: column;
+}
+
+.controls{
+    display: flex;
+    justify-content: center;
+}
+
+.list-of-modules{
+    display: flex;
+    flex-direction: column;
+    padding: 0 2vw;
+    height: 100vmax;
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (max-width: 992px) {
+    .breadcrumb{
+        display: block;
+        padding: 0;
+        background-color: transparent;
+        border: none;
+        margin:0 3vw;
+        font-size: 8vw;
+
+    }
+    .list-of-modules{
+        position: fixed;
+        display: none;
+        z-index: 1;
+        height: 100vmax;
+        padding: 20vw 20vw;
+    }
+    .content{
+        width: 100vw;
+        height: 100vmax;
+    }
+    .content-header{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: #fcca0a;
+        padding: 4vw;
+    }
+
+    .content-title .module_title{
+        width: 85vw;
+        font-size: 5vw;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: scroll;
+
+    }
+    
+}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 993px) {
+
+    body{
+        overflow-x: hidden;
+        background-color: white;
+    }
+    .breadcrumb{
+        display: none;
+    }
+    .list-of-modules{
+        height: 100vmax;
+        width: 22.5vw;
+
+    }
+
+
+
+    .content-title .module_title{
+        font-size: 1.5vw;
+
+    }
+
+    .content{
+        display: flex;
+        width: 77.5vw;
+        height: 100vmax;
+    }
+
+    iframe{
+        width: 60%;
+        height: 77vh;
+    }
+
+    .content-header{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: #fcca0a;
+        padding: 1vw;
+    }
+    
+}

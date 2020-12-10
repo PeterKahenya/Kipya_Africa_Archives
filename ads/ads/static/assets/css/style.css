@@ -1,0 +1,150 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Asul&display=swap');
+
+@font-face {
+    font-family: FuturaBold;
+    src: url('../fonts/futura/Futura\ Bold\ font.ttf');
+  }
+  @font-face {
+    font-family: Futura;
+    src: url('../fonts/futura/Futura\ Light\ font.ttf');
+  }
+
+html,
+body {
+    padding: 0;
+    margin: 0;
+    background-color:#ffffff;
+     overflow-x: hidden; 
+    font-family: 'Asul', sans-serif;
+
+}
+
+h1{
+    /* font-family: FuturaBold; */
+}
+.carousel-item {
+    height: 40rem;
+}
+
+.dropdown-menu{
+    background: #fcca0a;
+}
+/* .navbar{
+    margin-left: 144px !important;
+} */
+.text-dark{
+    color: black !important;
+}
+.btn-dark{
+    background-color: black;
+}
+.subbrand{
+    color: #fcca0a;
+    font-size: 12.5px;
+    font-family: sans-serif;
+}
+
+.ktts_subbrand{
+    color: #ffffff;
+    font-size: 10px;
+    font-family: 'Futura', sans-serif;
+}
+
+.nav-item {
+    margin: 10px;
+}
+
+.bg-dark{
+    background-color: #151001 !important;
+}
+
+.form-control{
+    margin: 20px 0px;
+}
+
+.primary_btn{
+    background-color: #ffffff;
+    padding: 10px;
+    border-radius: 5px;
+    color: black !important;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius:0px !important;
+}
+.secondary_btn {
+    color: black !important;
+    padding: 10px 15px !important;
+    border-radius: 5px;
+    text-decoration: none;
+    background-color: white;
+}
+
+/* Add the below transitions to allow a smooth color change similar to lyft */
+.navbar {
+    -webkit-transition: all 1s ease-out;
+    -moz-transition: all 1s ease-out;
+    -o-transition: all 1s ease-out;
+    -ms-transition: all 1s ease-out;
+    transition: all 1s ease-out;
+    margin: 0px;
+    padding: 0px;
+}
+
+.navbar.scrolled {
+    background: #2e2e2e;
+    /* IE */
+    background: #2e2e2e;
+    /* NON-IE */
+}
+
+.nav-item{
+    margin: 0 10px;
+    color: #fcca0a;
+}
+.nav-link{
+    margin: 0 10px;
+    color: #fcca0a;
+}
+
+.partners>a>img{
+    max-width: 15vw!important;
+    filter: grayscale(100%);
+}
+.partners>img{
+    max-width: 20vw!important;
+    filter: grayscale(100%);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,99 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="shortcut icon" href="{% static 'images/kipya_iconv2.png' %}" type="image/x-icon">
+  <title>{{module.title}} | Kipya Online Training Platform</title>
+  <meta content="#fcca0a" name="theme-color" >
+
+  <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+  <link rel="stylesheet" href="{% static 'css/module_detail.css' %}">
+
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-157832312-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-157832312-1');
+</script>
+
+</head>
+<body>
+
+  <div class="main-container">
+    <div class="list-of-modules shadow" id="list-of-modules">
+      {% for m in modules_list %}
+        {% if m.id == module.id %}
+          <a class="module_list_item m-2 shadow-sm active-module"  href="../{{m.id}}">
+            <div class="module_no mr-2">
+              {{ forloop.counter }}
+            </div>
+            <div class="module_title">{{m.title}}</div>
+            
+          </a>
+        {% else %}
+          <a class="module_list_item m-2"  href="../{{m.id}}">
+            <div class="module_no mr-2">
+              {{ forloop.counter }}
+            </div>
+            <div class="module_title">{{m.title}}</div>
+            
+          </a>
+        {% endif %}
+        
+      {% endfor %}
+      
+    </div>
+    <div class="content">
+      <div class="content-header shadow-sm">
+        <button onclick="openNav()" class="breadcrumb">&#9776;</button>
+        <div class="content-title">
+          <div class="text-center module_title">{{module.title}}</div>
+        </div>
+        <!-- <div id="profile_icon" style="display: flex;align-items: center;">
+          <small>{{request.user.first_name}} {{request.user.last_name}}</small>
+        </div> -->
+      </div>
+      <div class="learning-material p-2 d-flex flex-column bg-white align-items-center m-3">
+        {{module.content|safe}}
+      </div>
+      <div class="controls">
+        {% if prev_module %}
+        <a class="btn bg-white shadow-sm" href="../{{prev_module.id}}">Previous Module</a>
+      {% endif %}
+    
+      {% if next_module %}
+        <a class="btn btn-warning shadow-sm" href="../{{next_module.id}}">Next Module &#8658</a>
+      {% endif %}
+      </div>
+
+    </div>
+  </div>
+  
+
+  
+<script src="{% static 'js/jquery-3.4.1.min.js' %}"></script>
+<script src="{% static 'js/bootstrap.min.js' %}"></script>
+
+<script>
+  var showing_sidebar=false
+  function openNav() {
+    console.log(showing_sidebar)
+    if (showing_sidebar) {
+      $('#list-of-modules').fadeOut()
+      showing_sidebar=false
+    } else {
+      $('#list-of-modules').fadeIn()
+      showing_sidebar=true
+    }
+  }
+  
+  
+  </script>
+</body>
+</html>

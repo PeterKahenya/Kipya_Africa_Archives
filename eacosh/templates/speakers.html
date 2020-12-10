@@ -1,0 +1,146 @@
+{% extends "base.html" %} 
+{% load static %} 
+{% block title %}
+Speakers
+{% endblock %}
+{% block content %}
+<link rel="stylesheet" href="{% static 'css/home.css' %}" />
+
+<div
+class="col-xs-12 col-sm-12 col-md-12 col-xl-12"
+style="background:linear-gradient(#00000080,#00000040), url('{% static 'images/osh.webp' %}');background-size:100% 100%;min-height:30vh"
+>
+<div
+  class="d-flex flex-column align-items-center justify-content-center text-white"
+  style="height: 100%;width:100%;"
+
+>
+  <div class="title-1" >East Africa Conference on</div>
+  <div class="title-2">
+    <strong style="color: #000000;background-color: #fcca0a;">OCCUPATIONAL </strong> 
+    
+    <strong style="color: #fafafa;background-color: #05a100;">SAFETY</strong>
+    & 
+    <strong style="color: #fafafa;background-color: #0053a1;">HEALTH</strong>
+  </div>
+  
+  <!-- <hr color="white" width="100%" />
+  <div
+    class="text-center text-white"
+    style="font-family: 'Roboto', sans-serif;font-size: 1vw;"
+  >
+    Thursay 26<sup>th</sup> March 2020-Conference <br />
+    Friday 27<sup>th</sup> March 2020-Excursion <br />
+    NAIVASHA, KENYA
+  </div>
+  <hr color="white" width="100%" />
+  <div
+    style="font-family: 'Roboto',sans-serif;color: white;font-size: 1.5vw;"
+  >
+    Towards a vision of zero accident in the East Africa Extractives Industry
+</div> -->
+<br>
+  {% comment %} <p id="timer"></p> {% endcomment %}
+</div>
+</div>
+{% comment %} 
+<div class="main-content">
+    
+        <h4 class="text-center text-primary">Invited Guests and Speakers</h4>
+        <div id="speakers" style="display: flex;flex-direction: row;flex-wrap: wrap;align-items: center;justify-content: center;">
+
+            <div class="speaker">
+              <h5 class="s_name">Eng. Abel Rotich</h5>
+              <p class="s_title">Chairman, GAK</p>
+              <!-- <p class="s_theme">Climate Change: Challenges facing Water and Sanitation Management</p> -->
+            </div>
+            
+            
+            <div class="speaker">
+              <h5 class="s_name">Dr. Gathuru Mburu</h5>
+              <p class="s_title">Managing Director, Kipya (Africa) Limited</p>
+              <p class="s_theme">Occupational Safety & Health in the Geothermal Industry - The Bottom Line</p>
+            </div>
+            
+            <div class="speaker">
+              <h5 class="s_name">Mrs. Rebecca Miano</h5>
+              <p class="s_title">Managing Director & Chief Executive Officer, KenGen</p>
+              <!-- <p class="s_theme">Climate Change: Challenges facing Water and Sanitation Management</p> -->
+            </div>
+            
+            <div class="speaker">
+              <h5 class="s_name">Eng. Johnson P. Ole Nchoe</h5>
+              <p class="s_title">Managing Director & Chief Executive Officer, GDC</p>
+              <!-- <p class="s_theme">Climate Change: Challenges facing Water and Sanitation Management</p> -->
+            </div>
+
+            <div class="speaker">
+              <h5 class="s_name">Dr. Musa Nyandusi</h5>
+              <p class="s_title">Director, DOSHS</p>
+              <!-- <p class="s_theme">Climate Change Adaptation and Resilience</p> -->
+            </div>
+
+
+            <div class="speaker">
+              <h5 class="s_name">Hon. Simon K. Chelugui</h5>
+              <p class="s_title">Cabinet Secretary, Ministry of Labour and Social Protection,</p>
+              <p class="s_theme">Keynote Address</p>
+            </div>
+
+            <div class="speaker">
+              <h5 class="s_name">Dr. Andrew Muruka</h5>
+              <p class="s_title">Deputy Director, DOSHS</p>
+              <p class="s_theme">Achieving excellence and sustainability in HSE for the Geothermal Industry</p>
+            </div>
+
+            <div class="speaker">
+              <h5 class="s_name">Patrick Gikunju</h5>
+              <p class="s_title">KenGen</p>
+              <p class="s_theme">Achieving excellence and sustainability in HSE for the Geothermal Industry</p>
+            </div>
+            <div class="speaker">
+              <h5 class="s_name">Elizabeth Mwangi Gachau</h5>
+              <p class="s_title">KenGen</p>
+              <p class="s_theme">Technology, Audits, HSE Committee Training in the Geothermal Sector</p>
+            </div>
+
+            <div class="speaker">
+              <h5 class="s_name">Eng. Isaac Mwangi</h5>
+              <p class="s_title">HSE East Africa</p>
+              <p class="s_theme">Technology, Audits, HSE Committee Training in the Geothermal Sector</p>
+            </div>
+
+            <div class="speaker">
+              <h5 class="s_name">Mr. Pius Masai</h5>
+              <p class="s_title">Former Deputy Director Disaster Management</p>
+              <p class="s_theme">Best Practices-Hazards Control, Emergency Response and Preparedness</p>
+            </div>
+
+            <div class="speaker">
+              <h5 class="s_name">Kennedy Ronoh</h5>
+              <p class="s_title">KenGen</p>
+              <p class="s_theme">Best Practices-Hazards Control, Emergency Response and Preparedness</p>
+            </div>
+
+            <div class="speaker">
+              <h5 class="s_name">Geol. Mike Karanja</h5>
+              <p class="s_title">GAK</p>
+              <!-- <p class="s_theme">Technology, Audits, HSE Committee Training in the Geothermal Sector</p> -->
+            </div>
+          </div>
+      </div>
+    </div>
+  
+    <div style="display: flex;align-items: center;justify-content: center; width: 100%">
+      <a href="{% static 'docs/program.pdf' %}" class="secondary_btn">Download Program</a>
+      <a href="{% static 'docs/concept.pdf' %}" class="secondary_btn">Download Concept Note</a>
+  
+    </div>
+    <br>
+   <!-- <h3 class="text-center">Free Transport </h3>
+    <h3 class="text-center">KICC Transport </h3> -->
+  </div>
+ {% endcomment %}
+<script src="{% static 'js/home.js' %}"></script>
+
+{% endblock %}

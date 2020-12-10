@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+<div style="height:100%" class="d-flex flex-column align-items-center justify-content-space-between">
+    <div class="card p-2">
+        <h4>Login</h4>
+        <form action="" method="post">
+            {% csrf_token %}
+            <input type="email" class="form-control" id="username" name="username" placeholder="Email...">
+            <br>
+            <input type="password" class="form-control" id="password" name="password" placeholder="Password">
+            <br>
+            <button type="submit" class="btn btn-primary">Login</button>
+            <br>
+        </form>
+    </div>
+</div>
+{% endblock %}

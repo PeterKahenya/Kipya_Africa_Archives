@@ -1,0 +1,169 @@
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Jekyll v4.1.1">
+    <title>EAWATERS · Management</title>
+
+    <link rel="canonical" href="https://getbootstrap.com/docs/4.5/examples/pricing/">
+
+        <!-- Bootstrap core CSS -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+
+
+
+    <style>
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+      }
+
+      *{
+        font-size: 12px;
+      }
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+    </style>
+    <!-- Custom styles for this template -->
+    <link href="/static/css/manage.css" rel="stylesheet">
+  </head>
+  <body>
+    <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom shadow-sm">
+  <h5 class="my-0 mr-md-auto font-weight-normal">EAWATERS</h5>
+  <nav class="my-2 my-md-0 mr-md-3">
+ <!--    <a class="p-2 text-dark" href="#">Features</a>
+    <a class="p-2 text-dark" href="#">Enterprise</a>
+    <a class="p-2 text-dark" href="#">Support</a>
+    <a class="p-2 text-dark" href="#">Pricing</a> -->
+  </nav>
+  <!-- <a class="btn btn-outline-primary" href="#">Sign up</a> -->
+</div>
+
+<div class="container">
+        <div>
+          {% if request.GET.action %}
+
+              <div class="alert alert-success alert-dismissible fade show" role="alert">
+                <strong>Awesome!</strong> 
+                <div>Sending Succeeded</div>
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+          {% endif %}
+        </div>
+        <div class="d-flex justify-content-between"> 
+        <button class="btn btn-success ml-2" id="new_newsletter_btn">+ Add Delegate</button>
+        <form action="https://www.eawaters.com/en/manage/send_to_all" method="post">
+          {% csrf_token %}
+          <button type="submit" class="btn btn-primary">Send Email to All</button>
+        </form>
+        </div>
+        <br>
+        <br>
+        <div id="new_newsletter_form" class="col-6 border-success">
+          <form action="" method="post" class="mt-6 ">
+            {% csrf_token %}
+            <h4>New Delegate</h4>
+            <select name="title" class="eawaters_select_input" id="title">
+                <option value="Prof.">Prof.</option>
+                <option value="Dr.">Dr.</option>
+                <option value="Eng.">Eng.</option>
+                <option selected value="Mr.">Mr.</option>
+                <option value="Ms.">Ms.</option>
+                <option value="Mrs.">Mrs.</option>
+            </select>
+            <br>
+            <input name="first_name" class="eawaters_text_input" placeholder="First Name" 
+            type="text" id="first_name" />
+
+            <input name="last_name" class="eawaters_text_input" placeholder="Last Name" 
+            type="text" id="last_name"/>
+            {% include '../countries_select.html' %}
+            <input name="phone" class="eawaters_text_input" placeholder="+254712345678" type="tel" id="phone"/>
+            <input name="email" class="eawaters_text_input" placeholder="john@example.com" type="email" id="email"/>
+            <input name="organization" class="eawaters_text_input" placeholder="Organization" type="text" id="organization"/>
+            <input name="job_title" class="eawaters_text_input" placeholder="Job Title" type="text" id="job_title"/>
+            <select name="association" class="eawaters_select_input" id="association">
+                <option value="KWIA">KWIA</option>
+                <option value="WASPA">WASPA</option>
+                <option value="GSK">GSK</option>
+                <option selected>Association</option>
+            </select>
+            <input name="mpesa_code" class="eawaters_text_input" placeholder="MPESA Code" 
+            type="text" id="mpesa_code"/>
+            <hr>
+            <br>
+            <button class="btn btn-small btn-primary" type="submit">Save</button>
+            <span class="btn btn-info" onclick="location.reload()">Cancel</span>
+          </form>
+          <br>
+          <br>
+        </div>
+
+  <table class="table table-hover">
+  <thead>
+    <tr>
+      <th scope="col">Title</th>
+      <th scope="col">First Name</th>
+      <th scope="col">Last Name</th>
+      <th scope="col">Email</th>
+      <th scope="col">Organization</th>
+      <th scope="col">Zoom Link</th>
+      <th scope="col">Actions</th>
+
+    </tr>
+  </thead>
+  <tbody>
+    {% for delegate in delegates %}
+
+    <tr>
+      <th>{{delegate.title}}</th>
+      <td>{{delegate.first_name}}</td>
+      <td>{{delegate.last_name}}</td>
+      <td>{{delegate.email}}</td>
+      <td>{{delegate.organization}}</td>
+      <td><a class="btn btn-warning" href="{{delegate.zoom_link}}">Zoom Link</a></td>
+      <td>
+        <form action="https://www.eawaters.com/en/manage/send_to_one" method="post">
+            <input type="hidden" name="delegate_id" value="{{delegate.id}}">
+            {% csrf_token %}
+            <button type="submit" class="btn btn-info">Send Email</button>
+        </form>
+      </td>
+    </tr>
+
+    {% endfor %}
+
+  </tbody>
+</table>
+</div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+<script>
+  $("#new_newsletter_form").hide()
+  $("#new_newsletter_btn").click(()=>{
+  $("#new_newsletter_form").show()
+  $("#new_newsletter_btn").hide()
+
+  })
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+
+</div>
+</body>
+</html>

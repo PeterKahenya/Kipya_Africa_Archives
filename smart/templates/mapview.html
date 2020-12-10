@@ -1,0 +1,82 @@
+{% extends "base.html" %} {% load static %} {% block content %}
+<style>
+  #map {
+    height: 100%;
+    width: 100%;
+  }
+  html,
+  body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+  }
+</style>
+
+<script
+  type="text/javascript"
+  src="https://www.gstatic.com/charts/loader.js"
+></script>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<nav class="navbar sticky-top navbar-expand-lg navbar-light bg-primary text-white shadow" >
+  <a class="navbar-brand text-white" href="#">Smart Meter</a>
+  <button
+    class="navbar-toggler text-white"
+    type="button"
+    data-toggle="collapse"
+    data-target="#navbarSupportedContent"
+    aria-controls="navbarSupportedContent"
+    aria-expanded="false"
+    aria-label="Toggle navigation"
+  >
+    <span class="navbar-toggler-icon text-white"></span>
+  </button>
+
+  <div class="collapse navbar-collapse " id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto"></ul>
+
+    <div class="nav-item dropdown">
+      <a
+        class="nav-link dropdown-toggle text-white"
+        href="#"
+        id="navbarDropdown"
+        role="button"
+        data-toggle="dropdown"
+        aria-haspopup="true"
+        aria-expanded="false"
+      >
+        {{request.user.first_name}} {{request.user.last_name}}
+      </a>
+      <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+        <a class="dropdown-item" href="/accounts/logout">Logout</a>
+      </div>
+    </div>
+  </div>
+</nav>
+<br />
+<div style="height:90vh;width: 95vw;" class="container-fluid">
+  <div id="map"></div>
+</div>
+<script>
+  var map;
+  function initMap() {
+    map = new google.maps.Map(document.getElementById("map"), {
+      center: { lat: -1.328158, lng: 36.885765 },
+      zoom: 7
+    });
+    var marker = new google.maps.Marker({
+      position: { lat: -1.328158, lng: 36.885765 },
+      map: map,
+      title: "Doshi Borehole"
+    });
+
+    marker.addListener("click", function() {
+      window.location.href = "http://127.0.0.1:8000/wra-dashboard";
+    });
+  }
+</script>
+<script
+  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDA6APH-xDUuImqBgzoX27wXlP9O2cNUpM&callback=initMap"
+  async
+  defer
+></script>
+{% endblock %}

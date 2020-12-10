@@ -1,0 +1,204 @@
+{% load static %}
+
+<link rel="stylesheet" href="{% static 'css/delegate_form.css' %}">
+<div class="mdc-card delegateForm" style="min-width: 350px !important;">
+    <h4 style="text-align: center;">Register as Sponsor/Exhibitor</h4>
+        {% csrf_token %}
+        <input type="hidden" id="currentStep" value="1">
+        <!-- Step 1 -->
+        <div class="formStep" id="step1">
+            <select name="title" class="eawaters_select_input" id="title">
+                <option value="Prof.">Prof.</option>
+                <option value="Dr.">Dr.</option>
+                <option value="Eng.">Eng.</option>
+                <option selected value="Mr.">Mr.</option>
+                <option value="Ms.">Ms.</option>
+                <option value="Mrs.">Mrs.</option>
+            </select>
+            <input class="eawaters_text_input" placeholder="First Name" type="text" id="first_name"/>
+            <input class="eawaters_text_input" placeholder="Last Name" type="text" id="last_name"/>
+            <br>
+            <hr>
+            <div style="display: flex;">
+                <button class="primary_button" onclick="nextStep()">Next</button>
+            </div>
+        </div>
+
+
+        <!-- Step 2 -->
+        <div class="formStep" id="step2">
+            {% include 'countries_select.html' %}
+            <input class="eawaters_text_input" placeholder="+254712345678" type="tel" id="phone"/>
+            <input class="eawaters_text_input" placeholder="john@example.com" type="email" id="email"/>
+            <br>
+            <hr>
+            <div style="display: flex;">
+                <button class="secondary_button" onclick="prevStep()">Back</button>
+                <button class="primary_button" onclick="nextStep()">Next</button>
+            </div>
+
+
+        </div>
+
+        <!-- Step 3 -->
+        <div class="formStep" id="step3">
+            <input class="eawaters_text_input" placeholder="Organization" type="text" id="organization"/>
+            <select name="sponsorship" class="eawaters_select_input" id="sponsorship"/>
+                <option value="Sponsor">Sponsor/Presenter</option>
+                <option value="Exhibitor">Exhibitor</option>
+                <option value="Title Sponsor">Title Sponsor</option>
+                <option selected>Participation Package</option>
+            </select>
+            <br>
+            <hr>
+            <div style="display: flex;">
+                <button class="secondary_button" onclick="prevStep()">Back</button>
+                <button class="primary_button" onclick="nextStep()">Next</button>
+            </div>
+
+        </div>
+
+        <!-- Step 4 -->
+        <div class="formStep" id="step4">
+            <div class="alert alert-success" style="display: none !important;" id="payment_alert_type_0" role="alert">
+                Please Wait...
+            </div>
+            <div class="alert alert-danger" style="display: none !important;" id="payment_alert_type_1" role="alert">
+                <div id="payment_alert_type_1_message">
+
+                </div>
+            </div>
+            <div class="alert alert-success" style="display: none !important;" id="payment_alert_type_2" role="alert">
+                <div id="payment_alert_type_2_message">
+
+                </div>
+            </div>
+            <div class="mdc-card packageDetails">
+                <div class="packageTotal">
+                    <div><strong>Sponsorship Fee</strong></div>
+                    <div id="package_cost"></div>
+                </div>
+                <div class="paymentMethod">
+                    <div><strong>Paybill Number</strong></div>
+                    <div>749320</div>
+                    <div><strong>Account Number</strong></div>
+                    <div>Sponsor2020</div>
+                </div>
+            </div>
+
+            <input class="eawaters_text_input" placeholder="MPESA Code" type="text" id="mpesa_code"/>
+
+            <div style="display: flex;">
+                <button id="final_back_button" class="secondary_button" onclick="prevStep()">Back</button>
+                <button id="finish_button" class="primary_button" onclick="finish()">Finish</button>
+            </div>
+        </div>
+</div>
+
+<script>
+    axios({
+        method:"GET",
+        url:"https://www.eawaters.com/en/package?name=sponsor-kes",
+    }).then(response=>{
+        console.log(response)
+        if (response.status===200 && response.data.package ) {
+            $("#package_cost").html("KES."+response.data.package.amount)
+        }
+    })
+
+    function nextStep() {
+        var current=parseInt($('#currentStep').val())
+        var next=current+1
+        $("#step"+current).css("display","none")
+        $("#step"+next).css("display","flex")
+        $('#currentStep').val(next)
+    }
+
+    function prevStep() {
+        var current=parseInt($('#currentStep').val())
+        var next=current-1
+        $("#step"+current).css("display","none")
+        $("#step"+next).css("display","flex")
+        $('#currentStep').val(next)
+    }
+
+    async function checkMPESAPayment() {
+        var mpesa_code=$("#mpesa_code").val()
+        console.log(mpesa_code)
+        let response=await axios({
+            url:"https://tengenetsar.kipya-africa.com/api/shop/payment/payment-method-one/check",
+            method:"POST",
+            data:{
+                code:mpesa_code
+            },
+        })
+        console.log(response)
+        if (response.status===200 && !response.data.NF) {
+            $("#payment_alert_type_2_message").html("Confirmed Payment of KES. "+response.data.amount+" transaction code "+response.data.code+" for account number "+response.data.account_no+" by "+response.data.payment_by)
+            $("#payment_alert_type_1").hide()
+            $("#payment_alert_type_2").show()
+            return true
+        }else{
+            $("#payment_alert_type_1_message").html(response.data.message)
+            $("#payment_alert_type_0").hide()
+            // $("#final_back_button").attr("disabled",false)
+            // $("#finish_button").attr("disabled",false)
+            $("#payment_alert_type_1").show()
+            return false
+        }
+
+    }
+
+    async function registerSponsor() {
+        title = $("#title").val()
+        first_name = $("#first_name").val()
+        last_name = $("#last_name").val()
+        country = $("#country").val()
+        phone = $("#phone").val()
+        email = $("#email").val()
+        sponsorship = $("#sponsorship").val()
+        organization = $("#organization").val()
+        association = $("#association").val()
+        mpesa_code = $("#mpesa_code").val()
+
+        response=await axios({
+            method:"POST",
+            url:"https://www.eawaters.com/en/sponsorships",
+            headers:{ "X-CSRFToken": $("input[name='csrfmiddlewaretoken']").val() },
+            data:{
+                title:title,
+                first_name:first_name,
+                last_name:last_name,
+                email:email,
+                phone:phone,
+                country:country,
+                organization:organization,
+                job_title:"Sponsor Representative",
+                association:association,
+                sponsorship:sponsorship,
+                mpesa_code:mpesa_code
+            }
+        })
+
+        console.log(response)
+        if (response.data.message!="success") {
+            alert(response.data.message)
+        }else{
+            window.location.replace("/experience/"+response.data.sponsor_id)
+        }
+
+    }
+
+
+    function finish(){
+        $("#payment_alert_type_0").show()
+        // $("#final_back_button").attr("disabled",true)
+        // $("#finish_button").attr("disabled",true)
+
+        if(checkMPESAPayment()){
+            registerSponsor()
+        }
+    }
+
+
+</script>

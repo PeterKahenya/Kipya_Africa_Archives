@@ -1,0 +1,21 @@
+{% load static %}
+<form method="post" action="./posts/{{post.id}}/edit">
+    <div id="post{{ forloop.counter }}" style="padding:0px 2vw;border-left:3px solid #fcca0a;font-family:'Asul', sans-serif;" >
+            {% csrf_token %}
+            <div style="text-align:left!important;border: none!important;" class="editable_summernote" id="summernode_{{ forloop.counter }}_content">
+                {{post.content|safe}}
+            </div>
+            <input type="hidden" name="content" id="post_{{ forloop.counter }}_content" value='{{post.content|safe}}'/>
+    </div>
+<div class="d-flex justify-content-center align-items-center">
+    <button onclick="updateInput('{{ forloop.counter }}')" class="btn btn-primary btn-sm m-2" type="submit">
+        save
+    </button>
+    <a href="./posts/{{post.id}}/delete" class="btn btn-danger btn-sm m-2">
+        delete
+    </a>
+  </div>
+</form>
+<script>
+
+</script>

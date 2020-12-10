@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+{% load cms_tags static sekizai_tags %}
+
+
+{% block content %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/experience.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'css/delegate_form.css' %}">
+
+<div class="mainContainer">
+	<div class="topHeaderNav shadow">
+        {% include 'nav.html' %}
+	</div>
+	<div class="mainContent mb-4">
+		<h5 class="text-muted">Welcome Back <strong>{{attendee.title}} {{request.user.first_name}} {{request.user.last_name}}</strong> </h5>
+		<h6 class="text-primary m-2">Please Enter Your Email To Proceed</h6>
+		<div>
+			{% csrf_token %}
+			<input class="eawaters_text_input" id="email" type="email" placeholder="john@example.com" />
+			<button class="secondary_button" onclick="login()">Continue</button>
+		</div>
+		
+	</div>
+</div>
+<script type="text/javascript">
+	async function login() {
+        var email=$('#email').val()
+        if (email==="") {
+        	return;
+        } else {
+        	var response=await axios({
+            	method:"POST",
+            	url:"https://www.eawaters.com/en/login",
+            	headers:{ "X-CSRFToken": $("input[name='csrfmiddlewaretoken']").val() },
+	            data:{
+	                email:email
+	            }
+        	})
+        	console.log(response)
+        	if (response.data.success) {
+        		alert("Invalid Credentials")
+        	} else {
+        		window.location.href="/experience"
+        	}
+        }
+    }
+</script>
+
+
+
+{% endblock %}
+
+

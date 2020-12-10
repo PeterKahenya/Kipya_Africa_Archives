@@ -1,0 +1,84 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+  <head>
+
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+      <title>Create Account | Kipya Africa Online Professional Course</title>
+      <link href="{% static 'images/kipya_iconv2.png' %}" rel="icon">
+      <meta content="#fcca0a" name="theme-color" >
+  
+      <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet" >
+      <link href="{% static 'css/signup.css' %}" rel="stylesheet">
+      <!-- Global site tag (gtag.js) - Google Analytics -->
+      <script async src="https://www.googletagmanager.com/gtag/js?id=UA-157832312-1"></script>
+      <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+      
+        gtag('config', 'UA-157832312-1');
+      </script>
+</head>
+<body>
+    <div class="container text-center">
+      
+      <form class="form-signup" method="POST">
+        <img class="m-auto" src="{% static 'images/kipya_iconv2.png' %}" alt="" width="30" height="40">
+        <h1 class="h3 mb-3 font-weight-normal">Create Account</h1>
+  {% csrf_token %}
+  <div class="form-group">
+    <input type="text" name="first_name" placeholder="First Name" maxlength="30" class="form-control" id="first_name_input" aria-describedby="first_name_input_help">
+    {% if form.first_name.errors %}
+      <small id="first_name_input_help" class="form-text text-danger">{{form.first_name.errorr}}</small>
+    {% endif %}
+  </div>
+  <div class="form-group">
+    <input type="text" name="last_name" placeholder="Last Name" maxlength="30" class="form-control" id="last_name_input" aria-describedby="last_name_input_help">
+    {% if form.last_name.errors %}
+      <small id="last_name_input_help" class="form-text text-danger">{{form.last_name.errors}}</small>
+    {% endif %}
+  </div>
+  <div class="form-group">
+    <input type="email" name="email" placeholder="Email Address" class="form-control" id="email_input" aria-describedby="email_input_help">
+    {% if form.email.errors %}
+      <small id="email_input_help" class="form-text text-danger">{{form.email.errors }}</small>
+      {% else %}
+      <small id="email_input_help" class="form-text text-muted">{{form.email.help_text}}</small>
+    {% endif %}
+  </div>
+  <input type="hidden" name="username"  class="form-control" id="username_input" >
+
+  <div class="form-group">
+    <input type="password"  placeholder="Password" name="password1" required  class="form-control" id="password1_input" aria-describedby="password1_input_help">
+    {% if form.password1.errors %}
+      <small id="password1_input_help" class="form-text text-danger">{{form.password1.errors}}</small>
+    {% else %}
+      <small id="password1_input_help"  class="form-text text-muted">Your password must contain at least 8 letters and numbers</small>
+    {% endif %}
+  </div>
+  <div class="form-group">
+    <input type="password" placeholder="Confirm Password" name="password2"  required  class="form-control" id="password2_input" aria-describedby="password2_input_help">
+    {% if form.password2.errors %}
+      <small id="password2_input_help" class="form-text text-danger">{{form.password2.errors}}</small>
+    {% else %}
+      <small id="password2_input_help"  class="form-text text-muted"></small>
+    {% endif %}
+  </div>
+  <!-- {{ form.as_p }} -->
+  <button class="btn btn-lg btn-primary btn-block" type="submit">CREATE ACCOUNT</button>
+    <a href="../login/" class="btn text-primary">Already have an account?</a>
+</form>
+
+<script>
+document.getElementById('email_input').onchange= (e)=> {
+  document.getElementById("username_input").value=document.getElementById("email_input").value
+}
+
+
+
+</script>
+</body>
+</html>

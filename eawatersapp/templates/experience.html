@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+{% load cms_tags static sekizai_tags %}
+<title>Experience | The 5th East Africa Water Summit and Expo</title>
+
+{% block content %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/experience.css' %}">
+<div class="mainContainer">
+	<div class="topHeaderNav shadow">
+        {% include 'nav.html' %}
+	</div>
+	<div class="mainContent">
+		<h5 class="text-muted">Welcome Back <strong>{{attendee.title}} {{request.user.first_name}} {{request.user.last_name}}</strong> </h5>
+
+		<h6 class="text-primary m-2 text-start">Your Unique Links Appear Here.</h6>
+		<div class="mb-4 d-flex flex-column align-items-center">
+			{% for registration in registrations %}
+			<div class="eventCard">
+				<h4>{{registration.event.name}}</h4>
+				<div class="text-primary">
+					<!-- <span>{{registration.event.starts_at}}</span>
+					<span>-</span>
+					<span>{{registration.event.ends_at}}</span> -->
+				</div>
+				<hr color="#ccc" width="90%">
+				<button class="secondary_button d-flex align-items-center rounded-pill font-weight-bold" onclick="join(`{{registration.link}}`)">Join Now <span class="material-icons ml-2">login</span></button>
+			</div>
+		{% endfor %}
+		</div>
+		<hr color="#ccc" width="100%">
+		<h3>Expo</h3>
+		<div class="mb-4 d-flex flex-column align-items-center justify-content-center">
+			{% for sponsor in sponsors %}
+				<div class="eventCard align-items-center justify-content-center" style="width:300px !important;">
+					<h4 class="text-center">{{sponsor.attendee.organization}}</h4>
+					<hr color="#ccc" width="100%">
+					<div class="text-center">
+						<button onclick="join(`/experience/{{sponsor.id}}`)" style="background:linear-gradient(to right,#2e2bc4,#00b0f0) !important;padding:20px !important;width:150px !important;" class="secondary_button d-flex align-items-center rounded-pill font-weight-bold">Join<span class="material-icons ml-2">login</span></button>						
+					</div>
+
+				</div>
+			{% endfor %}
+		</div>
+	</div>
+</div>
+<script>
+	function join(link) {
+		window.location.href=link
+	}
+</script>
+
+
+
+{% endblock %}
